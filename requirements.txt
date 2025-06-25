@@ -1,0 +1,16 @@
+# Requirements for the LangGraph project
+langgraph
+langchain-core
+langchain-openai
+
+# Azure OpenAI integration
+azure-ai-projects
+azure-identity
+azure-ai-inference
+
+# Environment management
+python-dotenv
+
+# Data handling and utilities
+typing-extensions
+pydantic
