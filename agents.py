@@ -12,6 +12,9 @@ from langchain_openai import AzureChatOpenAI
 from langchain_core.messages import BaseMessage, HumanMessage, SystemMessage
 from langgraph.graph.message import add_messages
 
+# Import search tools
+from tools import brave_web_search, format_search_results
+
 # Load environment variables
 load_dotenv()
 
@@ -98,22 +101,38 @@ def web_search_agent(state: ResearchState):
     - Handles general web searches, news, and current information
     - Focuses on recent developments and real-world applications
     """
-    system_prompt = """You are the Web Search Agent, specialized in finding current web-based information.
+    
+    # Extract the user query from messages
+    user_query = ""
+    if state["messages"]:
+        # Get the original user query (first message)
+        user_query = state["messages"][0].content
+    
+    # Perform real web search using Brave Search API
+    print(f"🔍 Web Search Agent searching for: {user_query}")
+    search_results = brave_web_search(user_query, count=8)
+    formatted_results = format_search_results(search_results, "web")
+    
+    system_prompt = f"""You are the Web Search Agent, specialized in finding current web-based information.
     
     Your role:
-    1. Search for recent news, blog posts, and web articles
-    2. Find current trends, market information, and real-world applications
-    3. Gather information from company websites, press releases, and industry reports
-    4. Focus on practical, up-to-date information
+    1. Analyze real search results from Brave Search API
+    2. Extract key findings about recent developments and real-world applications
+    3. Focus on practical, up-to-date information from the search results
+    4. Identify trends, company developments, and market information
     
-    IMPORTANT: When given a research query, provide SPECIFIC web-based findings with:
-    - Company names and their developments
-    - Recent news events and announcements
+    SEARCH RESULTS TO ANALYZE:
+    {formatted_results}
+    
+    IMPORTANT: Base your response ONLY on the search results provided above. 
+    Provide specific findings with:
+    - Company names and their recent developments
+    - Recent news events and announcements  
     - Market trends and industry developments
     - Specific product launches or partnerships
     - Current applications and real-world use cases
     
-    Format your response as detailed research findings with current, practical information."""
+    Format your response as detailed research findings with current, practical information from the search results."""
     
     messages = [SystemMessage(content=system_prompt)] + state["messages"]
     response = llm.invoke(messages)

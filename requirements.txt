@@ -14,3 +14,6 @@ python-dotenv
 # Data handling and utilities
 typing-extensions
 pydantic
+
+# API requests
+requests
