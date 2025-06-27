@@ -1,11 +1,3 @@
-"""
-Search Tools Module
-
-This module contains search tools and utilities for the multi-agent research system.
-Includes Brave Search API integration for privacy-focused web searching and
-Azure AI Search integration for financial document vector search.
-"""
-
 import os
 import requests
 import xml.etree.ElementTree as ET
