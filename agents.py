@@ -1,10 +1,3 @@
-"""
-Research Agents Definition Module
-
-This module contains all agent definitions for the multi-agent research system.
-Each agent has a specific role and set of capabilities.
-"""
-
 import os
 from dotenv import load_dotenv
 from typing import TypedDict, Annotated
