@@ -194,3 +194,72 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 ⭐ If you find this project useful, please consider giving it a star!
+
+## 🔍 Azure Vector Search Integration
+
+This system includes advanced vector search capabilities for financial stress testing documents using Azure AI Search.
+
+### Financial Document Collection
+
+The system includes a comprehensive collection of real-world financial stress test documents:
+
+- **Bank of England**: 2025/2024/2022 stress test scenarios and results
+- **Federal Reserve**: DFAST/CCAR results, exploratory analyses
+- **Basel Committee**: International regulatory frameworks
+- **BIS**: Quarterly reviews and stability reports
+- **Economic Data**: FRED time series (NFCI, credit spreads, VIX)
+
+### Vector Search Features
+
+- **Semantic Search**: Find documents by meaning, not just keywords
+- **Institution Filtering**: Search within specific regulatory bodies
+- **Document Type Filtering**: Focus on scenarios, results, or methodologies
+- **Year Range Filtering**: Find historical or current documents
+- **Similar Document Discovery**: Find related content automatically
+
+### Azure Setup
+
+1. **Create Azure AI Search Service**:
+   - Use Standard tier or higher for vector search
+   - Enable semantic search capabilities
+
+2. **Deploy Azure OpenAI Embeddings**:
+   - Deploy `text-embedding-3-large` model
+   - Note the endpoint and API key
+
+3. **Configure Environment**:
+   ```bash
+   AZURE_SEARCH_ENDPOINT=https://your-service.search.windows.net
+   AZURE_SEARCH_KEY=your-admin-key
+   AZURE_OPENAI_ENDPOINT=https://your-openai.openai.azure.com/
+   AZURE_OPENAI_API_KEY=your-api-key
+   ```
+
+4. **Index Documents**:
+   ```bash
+   python setup_azure_vector_search.py
+   # Select option 1 to run indexing
+   ```
+
+### Usage Examples
+
+```python
+from vector_search_agent import create_vector_search_agent
+
+# Create agent
+agent = create_vector_search_agent()
+
+# Search for stress test scenarios
+results = agent.vector_search("Bank of England stress test scenarios for 2025")
+
+# Search by institution
+results = agent.search_by_institution("capital adequacy assessment", "Federal Reserve")
+
+# Search by document type
+results = agent.search_by_document_type("climate risk scenarios", "Climate Risk")
+
+# Get similar documents
+similar = agent.get_similar_documents(document_id, top_k=3)
+```
+
+The Data Search Agent automatically uses vector search for financial queries, providing authoritative information from indexed regulatory documents.
