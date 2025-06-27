@@ -33,9 +33,9 @@ The system leverages a curated collection of real stress testing documents from 
 ### System Architecture
 ```
 User Query → Lead Agent → [Academic Search | Web Search | Data Search] → Citations → Synthesis
-                                           ↓
-                                   Azure AI Search Index
-                                   (Financial Documents)
+                                                           ↓
+                                                   Azure AI Search Index
+                                                   (Financial Documents)
 ```
 
 ### Project Structure
