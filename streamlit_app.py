@@ -7,13 +7,11 @@ A fun and interactive way to visualize the multi-agent workflow in real-time!
 import streamlit as st
 import time
 from datetime import datetime
-from workflow import run_research, create_research_workflow
+from workflow import create_research_workflow
 from langchain_core.messages import HumanMessage
-import json
-from reportlab.lib.pagesizes import letter, A4
+from reportlab.lib.pagesizes import A4
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, PageBreak
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
-from reportlab.lib.units import inch
 from reportlab.lib.colors import HexColor
 import io
 
@@ -116,6 +114,25 @@ st.markdown("""
         margin: 1rem 0;
         font-size: 1.5rem;
     }
+    
+    .mission-control {
+        background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+        color: white;
+        padding: 1rem;
+        border-radius: 10px;
+        margin: 1rem 0;
+        max-height: 400px;
+        overflow-y: auto;
+    }
+    
+    .mission-event {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 0.5rem;
+        margin: 0.25rem 0;
+        border-radius: 5px;
+        border-left: 3px solid #4fd1c7;
+        font-size: 0.9rem;
+    }
 </style>""", unsafe_allow_html=True)
 
 def get_agent_emoji(agent_name):
@@ -144,45 +161,6 @@ def get_agent_personality(agent_name):
     }
     return personalities.get(agent_name, "The Mystery Agent 🤖")
 
-def display_agent_status(agent_name, status, content=""):
-    """Display agent status with fun styling"""
-    emoji = get_agent_emoji(agent_name)
-    personality = get_agent_personality(agent_name)
-    
-    if status == "running":
-        st.markdown(f"""
-        <div class="agent-card {agent_name.replace('_', '-')}-agent">
-            <h4>{emoji} {agent_name.replace('_', ' ').title()}</h4>
-            <p><em>{personality}</em></p>
-            <p class="status-running">🔄 Working hard...</p>
-        </div>
-        """, unsafe_allow_html=True)
-        
-        # Add a spinner for running agents
-        with st.spinner(f"{emoji} {agent_name.replace('_', ' ').title()} is thinking..."):
-            time.sleep(0.5)  # Brief pause for effect
-            
-    elif status == "complete":
-        st.markdown(f"""
-        <div class="agent-card {agent_name.replace('_', '-')}-agent">
-            <h4>{emoji} {agent_name.replace('_', ' ').title()}</h4>
-            <p><em>{personality}</em></p>
-            <p class="status-complete">✅ Mission accomplished!</p>
-        </div>
-        """, unsafe_allow_html=True)
-        
-        if content:
-            with st.expander(f"🔍 See what {agent_name.replace('_', ' ').title()} discovered"):
-                st.write(content[:1000] + "..." if len(content) > 1000 else content)
-    
-    else:  # waiting
-        st.markdown(f"""
-        <div class="agent-card {agent_name.replace('_', '-')}-agent">
-            <h4>{emoji} {agent_name.replace('_', ' ').title()}</h4>
-            <p><em>{personality}</em></p>
-            <p class="status-waiting">⏳ Standing by...</p>
-        </div>
-        """, unsafe_allow_html=True)
 
 def get_agent_avatar(agent_name, status="waiting"):
     """Get animated avatar for each agent based on status"""
@@ -212,6 +190,22 @@ def get_funny_instruction(from_agent, to_agent):
     }
     
     return instructions.get((from_agent, to_agent), f"🤝 {from_agent} ➡️ {to_agent}")
+def update_mission_control_sidebar():
+    """Update the mission control display in the sidebar"""
+    if 'mission_control_placeholder' in st.session_state and st.session_state.mission_control_placeholder:
+        # Ensure mission_events is initialized
+        if 'mission_events' not in st.session_state:
+            st.session_state.mission_events = []
+            
+        with st.session_state.mission_control_placeholder.container():
+            if st.session_state.mission_events:
+                st.markdown("### 📜 Mission Log")
+                for event in st.session_state.mission_events[-8:]:  # Show last 8 events
+                    st.markdown(f"- {event}")
+            else:
+                st.info("🎬 Awaiting mission deployment...")
+                st.markdown("*Mission updates will appear here during agent execution*")
+
 def get_agent_completed_work(agent_name):
     """Get the completed work content for a specific agent from session state"""
     # Try to get from session state
@@ -240,88 +234,6 @@ def display_workflow_stage(stage_name, description):
         <p>{description}</p>
     </div>
     """, unsafe_allow_html=True)
-
-def display_agent_orchestra(active_agents=None, completed_agents=None):
-    """Display the agent orchestra layout"""
-    if active_agents is None:
-        active_agents = []
-    if completed_agents is None:
-        completed_agents = []
-    
-    # Stage 1: The Orchestrator
-    st.markdown("### 🎭 The Orchestrator")
-    col1, col2, col3 = st.columns([1, 2, 1])
-    with col2:
-        status = "active" if "lead_agent" in active_agents else ("complete" if "lead_agent" in completed_agents else "waiting")
-        st.markdown(get_agent_avatar("lead_agent", status), unsafe_allow_html=True)
-        st.markdown("<p style='text-align: center;'><b>Lead Agent</b><br/>🎯 The Master Conductor</p>", unsafe_allow_html=True)
-    
-    # Stage 2: The Research Squad
-    if "lead_agent" in completed_agents:
-        st.markdown("### 🔍 The Research Squad")
-        st.markdown('<div class="agent-instruction">🎭 "Attention team! Fan out and gather intelligence!"</div>', unsafe_allow_html=True)
-        
-        col1, col2, col3 = st.columns(3)
-        
-        with col1:
-            status = "active" if "academic_search" in active_agents else ("complete" if "academic_search" in completed_agents else "waiting")
-            st.markdown(get_agent_avatar("academic_search", status), unsafe_allow_html=True)
-            st.markdown("<p style='text-align: center;'><b>Academic Search</b><br/>🎓 The Scholar</p>", unsafe_allow_html=True)
-            if "academic_search" in active_agents:
-                st.markdown('<div class="agent-instruction">📚 "Diving into research papers..."</div>', unsafe_allow_html=True)
-        
-        with col2:
-            status = "active" if "web_search" in active_agents else ("complete" if "web_search" in completed_agents else "waiting")
-            st.markdown(get_agent_avatar("web_search", status), unsafe_allow_html=True)
-            st.markdown("<p style='text-align: center;'><b>Web Search</b><br/>🌐 The News Hound</p>", unsafe_allow_html=True)
-            if "web_search" in active_agents:
-                st.markdown('<div class="agent-instruction">🔍 "Sniffing out fresh intel..."</div>', unsafe_allow_html=True)
-        
-        with col3:
-            status = "active" if "data_search" in active_agents else ("complete" if "data_search" in completed_agents else "waiting")
-            st.markdown(get_agent_avatar("data_search", status), unsafe_allow_html=True)
-            st.markdown("<p style='text-align: center;'><b>Data Search</b><br/>🏛️ The Vault Keeper</p>", unsafe_allow_html=True)
-            if "data_search" in active_agents:
-                st.markdown('<div class="agent-instruction">🗝️ "Unlocking financial secrets..."</div>', unsafe_allow_html=True)
-    
-    # Stage 3: The Quality Control Team
-    if all(agent in completed_agents for agent in ["academic_search", "web_search", "data_search"]):
-        st.markdown("### 📊 The Quality Control Team")
-        
-        # Aggregator
-        status = "active" if "aggregator" in active_agents else ("complete" if "aggregator" in completed_agents else "waiting")
-        col1, col2, col3 = st.columns([1, 2, 1])
-        with col2:
-            st.markdown(get_agent_avatar("aggregator", status), unsafe_allow_html=True)
-            st.markdown("<p style='text-align: center;'><b>Aggregator</b><br/>🔄 The Collector</p>", unsafe_allow_html=True)
-            if "aggregator" in active_agents:
-                st.markdown('<div class="agent-instruction">📦 "Gathering all the evidence..."</div>', unsafe_allow_html=True)
-        
-        # Handoff to Citations Agent
-        if "aggregator" in completed_agents:
-            st.markdown('<div class="agent-handoff">🔄 ➡️ 📋 "Here\'s all the intel, fact-check it!"</div>', unsafe_allow_html=True)
-            
-            # Citations Agent
-            col1, col2, col3 = st.columns([1, 2, 1])
-            with col2:
-                status = "active" if "citations_agent" in active_agents else ("complete" if "citations_agent" in completed_agents else "waiting")
-                st.markdown(get_agent_avatar("citations_agent", status), unsafe_allow_html=True)
-                st.markdown("<p style='text-align: center;'><b>Citations Agent</b><br/>📋 The Fact Checker</p>", unsafe_allow_html=True)
-                if "citations_agent" in active_agents:
-                    st.markdown('<div class="agent-instruction">✅ "Verifying all sources..."</div>', unsafe_allow_html=True)
-        
-        # Handoff to Synthesis Agent
-        if "citations_agent" in completed_agents:
-            st.markdown('<div class="agent-handoff">📋 ➡️ 🧠 "Everything checks out! Weave your magic!"</div>', unsafe_allow_html=True)
-            
-            # Synthesis Agent
-            col1, col2, col3 = st.columns([1, 2, 1])
-            with col2:
-                status = "active" if "synthesis" in active_agents else ("complete" if "synthesis" in completed_agents else "waiting")
-                st.markdown(get_agent_avatar("synthesis", status), unsafe_allow_html=True)
-                st.markdown("<p style='text-align: center;'><b>Synthesis Agent</b><br/>🧠 The Mastermind</p>", unsafe_allow_html=True)
-                if "synthesis" in active_agents:
-                    st.markdown('<div class="agent-instruction">🎨 "Crafting the final masterpiece..."</div>', unsafe_allow_html=True)
 
 def run_workflow_with_visualization(query):
     """Run the workflow and visualize each step with dynamic agent appearance"""
@@ -381,13 +293,18 @@ def run_workflow_with_visualization(query):
         with progress_container:
             progress_bar = st.progress(0)
             status_text = st.empty()
-            mission_log = st.empty()
     
     # Execute workflow with cinematic visualization
     result = None
     step_count = 0
     total_steps = len(agent_names)
-    mission_events = []
+    
+    # Initialize mission events in session state
+    if 'mission_events' not in st.session_state:
+        st.session_state.mission_events = []
+    
+    # Clear previous mission events for new workflow
+    st.session_state.mission_events = []
     
     status_text.text("🎬 Mission briefing complete. Deploying first agent...")
     
@@ -417,19 +334,24 @@ def run_workflow_with_visualization(query):
             
             # Add mission event
             if node_name == "lead_agent":
-                mission_events.append(f"🎯 **Mission Commander** {emoji} **{agent_title}** has taken command!")
+                st.session_state.mission_events.append(f"🎯 **Mission Commander** {emoji} **{agent_title}** has taken command!")
+                update_mission_control_sidebar()
                 status_text.text(f"🎭 {agent_title} is analyzing the mission parameters...")
             elif node_name in ["academic_search", "web_search", "data_search"]:
-                mission_events.append(f"📡 **Field Agent** {emoji} **{agent_title}** has been deployed!")
+                st.session_state.mission_events.append(f"📡 **Field Agent** {emoji} **{agent_title}** has been deployed!")
+                update_mission_control_sidebar()
                 status_text.text(f"🔍 {agent_title} is gathering intelligence...")
             elif node_name == "aggregator":
-                mission_events.append(f"📊 **Intelligence Analyst** {emoji} **{agent_title}** is compiling findings!")
+                st.session_state.mission_events.append(f"📊 **Intelligence Analyst** {emoji} **{agent_title}** is compiling findings!")
+                update_mission_control_sidebar()
                 status_text.text(f"🔄 {agent_title} is processing all collected data...")
             elif node_name == "citations_agent":
-                mission_events.append(f"✅ **Quality Controller** {emoji} **{agent_title}** is verifying sources!")
+                st.session_state.mission_events.append(f"✅ **Quality Controller** {emoji} **{agent_title}** is verifying sources!")
+                update_mission_control_sidebar()
                 status_text.text(f"📋 {agent_title} is fact-checking all intelligence...")
             elif node_name == "synthesis":
-                mission_events.append(f"🧠 **Master Strategist** {emoji} **{agent_title}** is crafting the final report!")
+                st.session_state.mission_events.append(f"🧠 **Master Strategist** {emoji} **{agent_title}** is crafting the final report!")
+                update_mission_control_sidebar()
                 status_text.text(f"🎨 {agent_title} is weaving everything together...")
         
         # Update the dynamic stage with current workflow state
@@ -441,17 +363,12 @@ def run_workflow_with_visualization(query):
             completed_agents.append(node_name)
             agent_title = node_name.replace('_', ' ').title()
             emoji = get_agent_emoji(node_name)
-            mission_events.append(f"✅ **{agent_title}** {emoji} mission complete! Excellent work!")
+            st.session_state.mission_events.append(f"✅ **{agent_title}** {emoji} mission complete! Excellent work!")
+            update_mission_control_sidebar()
             
             # Store the agent's work content for later display
             if content:
                 st.session_state[f"agent_work_{node_name}"] = content
-        
-        # Update mission log
-        with mission_log.container():
-            st.markdown("#### 📜 Mission Log")
-            for event in mission_events[-5:]:  # Show last 5 events
-                st.markdown(f"- {event}")
         
         result = step_data
         time.sleep(0.8)  # Dramatic pause for effect
@@ -465,12 +382,9 @@ def run_workflow_with_visualization(query):
         st.markdown("### 🏆 Mission Complete - All Agents Successful!")
         display_cinematic_workflow([], agent_names, "complete", "Mission accomplished!")
     
-    # Final mission summary
-    with mission_log.container():
-        st.markdown("#### 🏆 Mission Summary")
-        st.success(f"**OPERATION COMPLETE**: {len(completed_agents)} agents deployed successfully!")
-        for event in mission_events:
-            st.markdown(f"- {event}")
+    # Final mission event
+    st.session_state.mission_events.append("🏆 **OPERATION COMPLETE**: All agents deployed successfully!")
+    update_mission_control_sidebar()
     
     # Display final results
     with results_container:
@@ -937,11 +851,28 @@ def main():
                 st.session_state.query = sample
         
         st.markdown("---")
-        st.markdown("## 🎯 System Status")
-        st.info("🟢 All agents ready")
-        st.success("🟢 Azure AI Search connected")
-        st.success("🟢 arXiv API ready")
-        st.success("🟢 Brave Search ready")
+        st.markdown("## 🎛️ Mission Control")
+        
+        # Mission control updates will be displayed here during workflow execution
+        mission_control_placeholder = st.empty()
+        
+        # Initialize mission control display
+        if 'mission_control_placeholder' not in st.session_state:
+            st.session_state.mission_control_placeholder = mission_control_placeholder
+        
+        # Initialize mission events if not already done
+        if 'mission_events' not in st.session_state:
+            st.session_state.mission_events = []
+        
+        # Display current mission events
+        with mission_control_placeholder.container():
+            if st.session_state.mission_events:
+                st.markdown("### 📜 Mission Log")
+                for event in st.session_state.mission_events[-8:]:  # Show last 8 events
+                    st.markdown(f"- {event}")
+            else:
+                st.info("🎬 Awaiting mission deployment...")
+                st.markdown("*Mission updates will appear here during agent execution*")
     
     # Main query input
     st.markdown("## 🔍 Research Query")
@@ -1040,9 +971,9 @@ def main():
                             st.info("💡 Text download is still available above")
         
         # Clear query button
-        if st.button("�🔄 Start New Research", type="secondary"):
-            # Clear all session state including agent work
-            keys_to_clear = ['query', 'results', 'last_query']
+        if st.button("🔄 Start New Research", type="secondary"):
+            # Clear all session state including agent work and mission events
+            keys_to_clear = ['query', 'results', 'last_query', 'mission_events']
             # Also clear any stored agent work
             agent_work_keys = [key for key in st.session_state.keys() if key.startswith('agent_work_')]
             keys_to_clear.extend(agent_work_keys)
