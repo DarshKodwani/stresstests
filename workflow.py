@@ -17,7 +17,6 @@ def router(state: ResearchState) -> Literal["academic_search", "web_search", "da
     Router function to determine which search agents to activate.
     For now, we'll activate all search agents in parallel.
     """
-    # This could be made smarter based on the query type
     return ["academic_search", "web_search", "data_search"]
 
 def aggregator(state: ResearchState):
@@ -25,7 +24,6 @@ def aggregator(state: ResearchState):
     Aggregation node that waits for all search agents to complete
     before proceeding to citations agent.
     """
-    # This node doesn't modify the state, just acts as a collection point
     return {"messages": state["messages"]}
 
 def create_research_workflow():
@@ -35,10 +33,8 @@ def create_research_workflow():
     Returns:
         Compiled LangGraph workflow
     """
-    # Create the workflow graph
     workflow = StateGraph(ResearchState)
     
-    # Add all agent nodes
     workflow.add_node("lead_agent", lead_agent)
     workflow.add_node("academic_search", academic_search_agent)
     workflow.add_node("web_search", web_search_agent)
@@ -47,8 +43,6 @@ def create_research_workflow():
     workflow.add_node("citations_agent", citations_agent)
     workflow.add_node("synthesis", synthesis_agent)
     
-    # Define the workflow edges
-    # Start with lead agent
     workflow.add_edge(START, "lead_agent")
     
     # Lead agent dispatches to all search agents in parallel
@@ -84,10 +78,8 @@ def run_research(query: str, verbose: bool = True):
     Returns:
         dict: The final state containing all research results
     """
-    # Create the workflow
     app = create_research_workflow()
     
-    # Initialize state with user query
     initial_state = {
         "messages": [HumanMessage(content=query)],
         "user_query": query,
@@ -110,7 +102,6 @@ def run_research(query: str, verbose: bool = True):
         step_count += 1
         
         if verbose:
-            # Get the node name and content
             node_name = list(step.keys())[0] if step else "unknown"
             step_data = step.get(node_name, {})
             
@@ -186,7 +177,6 @@ if __name__ == "__main__":
                 print(f"\n🏷️  {agent_name}:")
                 print("   " + "─" * 35)
                 
-                # Format the content nicely
                 content = message.content
                 lines = content.split('\n')
                 for line in lines[:10]:  # Show first 10 lines
