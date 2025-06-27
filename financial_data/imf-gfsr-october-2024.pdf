@@ -1,0 +1,1182 @@
+	 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+	<title>International Monetary Fund</title>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Cache-control" content="no-cache" />
+	<meta name="Creator" content="" />
+	<meta name="Subject" content="" />
+	<meta name="Description" content="IMF Page not found with links to News, About the IMF, Fund Rates, IMF Publications, What's New, Standards and Codes, Country Information and featured topics" />
+	<meta name="Date" content="2018-03-06" />
+	<meta name="Speaker" content="" />
+	<meta name="Type" content="" />
+	<meta name="Country" content="" />
+	<meta name="ISOCODE" content="" />
+	<meta name="Region" content="" />
+	<meta name="Keywords" content="Finance, Development, IMF, International Monetary Fund, international economics, economic development" />
+	<meta name="Language" content="eng" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+
+
+	<link rel="stylesheet" href="/external/19/css/styles.css" />
+	 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+
+	<link href="/external/07/images/imf_seal.ico" type="image/ico" rel="Shortcut Icon" />
+		<!-- NOINDEX -->
+<!-- start eng/hdscript.txt -->
+<script type="text/javascript">
+<!-- hide
+//Clear inherited frames
+if (top.frames.length!=0)
+top.location=self.document.location;
+// unhide -->
+</script>
+
+
+<!-- Commenting the Old Code -->
+<!-- start s_code.js-->
+    <!-- SiteCatalyst code version: H.12.
+    Copyright 1997-2007 Omniture, Inc. More info available at
+    http://www.omniture.com -->
+ <!--   <script type="text/javascript" language="JavaScript" src="/external/x10/ssi/s_code.js"></script>
+    <script type="text/javascript" language="JavaScript">
+     /* You may give each page an identifying name, server, and channel on
+     the next lines. */
+     s.pageName=""
+     
+     
+     /************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+     var s_code=s.t();
+     
+     if(s_code)document.write(s_code)</script> -->
+    <!-- End SiteCatalyst code version: H.12. -->
+    <!-- stop s_code.js -->
+    <script type="text/javascript" language="JavaScript" src="/external/x10/ssi/gatag.js"></script> 
+	
+    <!-- Start Google Analytics Code -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CPJPTDPL31"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CPJPTDPL31', {'page_location': decodeURI(window.location.href.toLowerCase())});
+</script>
+<!-- End Google Analytics Code -->
+
+<!--// Verint Unified WebSDK Integration Snippet v2.3 Start-->
+<script type="application/javascript" id="uws-snippet">
+  // Verint Unified WebSDK Integration Snippet v2.3
+  //
+  // Instructions: please embed this snippet directly into every page of your website template.
+  // For optimal performance, this should be embedded directly into the template, not referenced as
+  // an external file.
+  //
+  // DO NOT MODIFY BELOW THIS LINE *****************************************
+  (function () {
+    var cookies = document.cookie.split("; ").reduce(function (o, i) { var p = i.split("="); o[p[0]] = p[1]; return o; }, {});
+    var containerValue = cookies.uws_container_override && JSON.parse(decodeURIComponent(cookies.uws_container_override));
+    var config = {
+      moduleHost: "ucm-us.verint-cdn.com",
+      configHost: "ucm-us.verint-cdn.com",
+      siteKey: "imf-org",
+      container: containerValue || "live",
+      loadTime: Date.now()
+    };
+    var readyCallbacks = []; window.uwsReady = function (callback) { readyCallbacks.push(callback); };
+    var sdkPath = "//" + [config.moduleHost, "files/sites", config.siteKey, config.container, "sdk.js"].join("/");
+    var script = document.createElement("script"); script.src = sdkPath; script.async = true; script.type = "module";
+    script.addEventListener("load", function () { window.unifiedSDK.start(config, readyCallbacks); });
+    document.head.appendChild(script);
+  })();
+  // DO NOT MODIFY ABOVE THIS LINE *****************************************
+</script>
+<!--// Verint Unified WebSDK Integration Snippet v2.3 End-->
+
+<script language="JavaScript" type="text/javascript" src="/external/x10/ssi/googlepdf.js"></script>
+
+<!-- /NOINDEX -->
+
+ <!-- Omniture Tracking DTM Script begin--> 
+
+ <script src="//assets.adobedtm.com/c7b988f076dc93cc20c734bc51e87dde0b81f134/satelliteLib-834e3fe4ac4ea890c36d061e19fc6cfc1b5dc5d0.js"></script> 
+ <!-- Omniture Tracking DTM Script end -->
+
+	  <!-- SiteCatalyst code version: H.12.
+		Copyright 1997-2007 Omniture, Inc. More info available at
+		http://www.omniture.com -->
+		<!--<script type="text/javascript" language="JavaScript" src="/external/x10/ssi/s_code.js"></script>-->
+		<script type="text/javascript" language="JavaScript">
+		 /* You may give each page an identifying name, server, and channel on
+		 the next lines. */
+		 s.pageName=""
+		 /************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+		 var s_code=s.t();if(s_code)document.write(s_code)</script>
+		<!-- End SiteCatalyst code version: H.12. -->
+		<!-- stop s_code.js -->
+
+	<!-- Start Google Analytics Code -->
+	<script type="text/javascript" language="JavaScript">
+		function getParameterByName(name) {
+			name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+			var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+			results = regex.exec(location.search);
+			document.getElementById('errorText').innerText = decodeURIComponent(results[1].replace(/\+/g, " "));
+
+		}
+		try{ 
+		
+		digitalData; 
+		} 
+		catch(err) {var digitalData="";} 
+		/*Data Layer code*/ 
+		digitalData ={page: { 
+		pageInfo : { 
+		error : 'errorPage', 
+		errorName:404 
+		}} 
+		} ; 
+
+	</script>
+	</head>
+
+	<body data-ng-app="IMFHome">
+		<script type="text/javascript">
+			var app = angular.module('IMFHome', []);
+
+			app.filter("sanitize", ['$sce', function ($sce) {
+				return function (htmlCode) {
+					return $sce.trustAsHtml(htmlCode);
+				}
+			}]);
+
+			app.controller('whatsNewCtrl', function ($scope, $http, $sce) {
+
+				$scope.finished = function () {
+					var whatsNewNavigationLinks = document.querySelectorAll('.whatsnew .ng-scope a');
+					for (i = 0; i < whatsNewNavigationLinks.length; i++) {
+						whatsNewNavigationLinks[i].addEventListener("click", onwhatsNewNavigationClick);
+					}
+				}
+
+
+				var today = new Date();
+				var dd = today.getDate();
+				var mm = today.getMonth() + 1; //January is 0!
+
+				var yyyy = today.getFullYear();
+				if (dd < 10) {
+					dd = '0' + dd
+				}
+				if (mm < 10) {
+					mm = '0' + mm
+				}
+				var today = mm + '/' + dd + '/' + yyyy;
+				var url = "/external/ws/IMFORGReadAPILegacy/api/whatsnew?count=8&isoCode=eng&date=" + today.toString();
+
+				$http.get(url)
+					.success(function (response) {
+
+						$scope.whatsNewItems = response;
+					});
+			});
+		</script>
+
+
+
+
+			 
+			  <a href="#" id="scroll" style="display: none;"><span></span></a> 
+			 
+	 
+			 
+		
+	  <div class="full-width-header">
+			<!-- BEGIN HEADER --->
+			<header id="header" class="main-header">
+
+
+				<!-- BEGIN HEADER TOP AREA --->
+				  <div class="flex-container padded-vertical-20">
+      <div class="cell flex-third text-left">
+        <ul class="social-hz">
+            <li><a href="http://www.twitter.com/imfnews" target="_blank" class="fab fa-x-twitter" title="Follow IMF Twitter"></a></li>
+            <li><a href="https://www.facebook.com/International-Monetary-Fund-152292984850728/" class="fab fa-facebook-f" target="_blank" title="Follow IMF Facebook"></a></li>
+            <li><a href="http://www.linkedin.com/company/international-monetary-fund" class="fab fa-linkedin-in" target="_blank" title="Follow IMF LinkedIn"></a></li>
+            <li><a href="https://www.instagram.com/the_imf/" class="fab fa-instagram" target="_blank" title="Follow IMF Instagram"></a></li>
+            <li><a href="https://www.threads.net/@the_imf/" class="fab fa-threads" target="_blank" title="Follow the IMF on Threads"></a></li>
+            <li><a href="http://www.youtube.com/imf" class="fab fa-youtube" target="_blank" title="Follow IMF Youtube"></a></li>
+            <li><a href="/en/news/podcasts" class="far fa-podcast" title="IMF Podcasts"></a></li>
+            <li><a href="http://www.flickr.com/imfphoto" class="fab fa-flickr" target="_blank" title="Follow IMF Flickr"></a></li>
+            <li><a href="/en/email-subscription/index" class="fas fa-envelope-open-text" title="Subscribe to IMF Emails"></a></li>
+			<li><a href="/en/live" title="IMF Live" class="nav-img"><img src="https://www.imf.org/~/media/Images/IMF/Live-Page/imf-live-rgb-h.ashx?la=en" srcset="https://www.imf.org/-/media/Images/IMF/Live-Page/imf-live-rgb-h-svg.ashx" alt="IMF Live"></a></li>
+        </ul>
+      </div>
+      <div class="cell flex-third logo-cell">
+          <a href="/en/Home"><img src="/external/19/images/header/IMF_seal_shadow.png" srcset="/external/19/images/header/IMF_seal_shadow.svg" alt="International Monetary Fund" class="head-seal" /></a>
+          <a href="/en/Home"><img src="/external/19/images/header/IMF_logo_ENG.png" srcset="/external/19/images/header/IMF_logo_ENG.svg" alt="International Monetary Fund" class="head-logo" /></a>
+      </div>
+      <div class="cell flex-third text-right search-cell"> 
+          
+          <!-- BEGIN desktop SEARCH -->
+            <form id="searchform" class="hide-mobile" method="get" onSubmit="window.location.href = '/en/search#q='+encodeURIComponent(getElementById('NewQuery').value);return false;">
+            <fieldset>
+                <input id="NewQuery" name="NewQuery" class="text search" type="text" placeholder="Search" />
+            </fieldset>
+            <button type="submit" class="far fa-search"></button>
+            </form>
+         <!-- end desktop SEARCH -->
+         
+      
+         
+         
+                  <!-- BEGIN mobile SEARCH  -->
+         <form id="searchform-mob" method="get" class="is-mobile" action="/en/search">
+            <i class="far fa-search" aria-hidden="true"></i>
+            <div class="search-box">
+                <input id="NewQuery-mob" name="NewQuery" value="Search IMF.org" onfocus="this.value = ''" class="text search" type="text">
+                <input type="submit" value="Search">
+            </div>
+        </form>
+        <!--    end mobile SEARCH -->
+    <!-- END SEARCH --> 
+      </div>
+        
+</div>  
+				<!-- BEGIN HEADER TOP AREA --->
+				<!-- BEGIN MAIN NAV -->
+				<div class="droopmenu-navbar">
+					<div class="droopmenu-inner">
+						<div class="droopmenu-header">
+
+							<a href="#" class="droopmenu-toggle"></a>
+						</div><!-- droopmenu-header -->
+						 <div class="droopmenu-nav">
+                    <ul class="droopmenu">
+                        
+                        
+                        <li>
+    <a href="/en/About">About</a>
+    <ul class="droopmenu-megamenu droopmenu-grid">
+    <li class="droopmenu-grid-container">
+    <div class="droopmenu-row">
+    <ul class="droopmenu-col droopmenu-col4">
+        <li>
+        <h4>FACTSHEETS</h4>
+        </li>
+    </ul>
+    <ul class="droopmenu-col droopmenu-col4">
+        <li>
+        <h4>RESOURCES</h4>
+        </li>
+    </ul>
+    <ul class="droopmenu-col droopmenu-col4">
+        <li>
+        <h4>TOPICS</h4>
+        </li>
+    </ul>
+    </div>
+    <div class="droopmenu-row">
+    <ul class="droopmenu-col droopmenu-col4">
+        <li><a href="/en/About/Factsheets/IMF-at-a-Glance">IMF at a Glance</a></li>
+        <li><a href="/en/About/Factsheets/IMF-Surveillance">Surveillance</a></li>
+        <li><a href="/en/About/Factsheets/IMF-Lending">Lending</a></li>
+        <li><a href="/en/About/Factsheets/imf-capacity-development">Capacity Development</a></li>
+        <li><a href="/en/About/Factsheets">IMF Factsheets List</a></li>
+    </ul>
+    <ul class="droopmenu-col droopmenu-col4">
+         <li><a href="http://www.imf.org/external/np/sec/memdir/members.aspx">IMF Members</a></li>
+		 <li><a href="https://www.imf.org/en/data/imf-finances">IMF Finances</a></li>
+	<li><a href="/en/Data/IMF-Finances/Quarterly-Financial-Statements">IMF Financial Statements</a></li>
+	<li><a href="/en/About/senior-officials">IMF Senior Officials</a></li>
+        <li><a href="/en/About/Timeline">IMF in History</a></li>
+	<li><a href="http://www.imf.org/external/np/arc/eng/archive.htm">Archives of the IMF</a></li>
+	<li><a href="http://www.imf.org/external/np/adm/rec/recruit.htm">Job Opportunities</a></li>
+    </ul>
+    <ul class="droopmenu-col droopmenu-col4">
+        <li><a href="/en/Topics/climate-change">Climate Change</a></li>
+        <li><a href="/en/Topics/fintech">Fintech</a></li>
+        <li><a href="/en/Topics/fiscal-policies">Fiscal Policies</a></li>
+        <li><a href="/en/Topics/Inequality">Income Inequality</a></li>
+        <li><a href="/en/Topics/IMF-Topics">All Topics</a></li>
+    </ul>
+    </div>
+    <!-- droopmenu-row -->
+    </li>
+</ul>
+</li>   
+                        
+                        
+                        <li>
+    <a href="/en/Research">Research</a>
+    <ul class="droopmenu-megamenu droopmenu-grid">
+        <li class="droopmenu-grid-container">
+            <div class="droopmenu-row">
+                <ul class="droopmenu-col droopmenu-col3">
+                    <li><h4>Flagship Publications</h4></li>
+                </ul>
+                
+                <ul class="droopmenu-col droopmenu-col3">
+                    <li><h4>Other Publications</h4></li>
+                </ul>
+            </div>
+            <div class="droopmenu-row">
+                <ul class="droopmenu-col droopmenu-col3">
+                    <li><a href="/en/publications/weo">World Economic Outlook</a></li>
+                    <li><a href="/en/publications/gfsr">Global Financial Stability</a></li>
+                    <li><a href="/en/publications/FM">Fiscal Monitor</a></li>
+                    <li><a href="/en/Publications/SPROLLs/External-Sector-Reports#sort=%40imfdate%20descending">External Sector</a></li>
+                    
+                </ul>
+                
+                <ul class="droopmenu-col droopmenu-col3">
+                    <li><a href="/en/Publications/SPROLLs/Staff-Discussion-Notes">Staff Discussion Notes</a></li>
+                    <li><a href="/en/publications/search?when=After&amp;series=IMF+Working+Papers">Working Papers</a></li>
+                    <li><a href="/external/pubs/ft/irb/archive.htm">IMF Research Perspectives</a></li>
+                    <li><a href="http://www.palgrave-journals.com/imfer/index.html">Economic Review</a></li>
+                </ul>
+                
+                <ul class="droopmenu-col droopmenu-col3">
+                    <li><a href="/external/research/housing/index.htm">Global Housing Watch</a></li>
+                    <li><a href="/external/np/res/commod/index.aspx">Commodity Prices</a></li>
+                    <li><a href="https://data.imf.org/?sk=471DDDF8-D8A7-499A-81BA-5B332C01F8B9">Commodities Data Portal</a></li>
+                </ul>
+                
+                <ul class="droopmenu-col droopmenu-col3">
+                    <li><a href="/external/np/cv/CV.aspx">IMF Researchers</a></li>
+                    <li><a href="/external/pubs/ft/staffp/arc/index.asp">Annual Research Conference</a></li>
+                    <li><a href="/en/News/Seminars/Conferences/2019/03/25/7th-statistical-forum">Other IMF Events</a></li>
+                    
+                </ul>                                        
+            </div><!-- droopmenu-row -->
+        </li>
+    </ul>
+</li>          
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+             <li>
+    <a href="/en/countries">Countries</a>
+    <ul class="droopmenu-megamenu droopmenu-grid country-menu">
+        <li class="droopmenu-grid-container">
+            <div class="droopmenu-row">
+                <ul class="droopmenu-col droopmenu-col6">
+                    <li><h4>IMF reports and publications by country</h4></li>
+                </ul>
+                <ul class="droopmenu-col droopmenu-col3">
+                    <li></li>
+                </ul>
+                 <ul class="droopmenu-col droopmenu-col3">
+                    <li><h4>Regional Offices</h4></li>
+                </ul>
+                
+            </div>
+            <div class="droopmenu-row">
+                <ul class="droopmenu-col droopmenu-col6 country-list">
+                    <li><a href="/en/countries#A">A</a></li>
+                    <li><a href="/en/countries#B">B</a></li>
+                    <li><a href="/en/countries#C">C</a></li>
+                    <li><a href="/en/countries#D">D</a></li>
+                    <li><a href="/en/countries#E">E</a></li>
+                    <li><a href="/en/countries#F">F</a></li>
+                    <li><a href="/en/countries#G">G</a></li>
+                    <li><a href="/en/countries#H">H</a></li>
+                    <li><a href="/en/countries#I">I</a></li>
+                    <li><a href="/en/countries#J">J</a></li>
+                    <li><a href="/en/countries#K">K</a></li>
+                    <li><a href="/en/countries#L">L</a></li>
+                    <li><a href="/en/countries#M">M</a></li>
+                    <li><a href="/en/countries#N">N</a></li>
+                    <li><a href="/en/countries#O">O</a></li>
+                    <li><a href="/en/countries#P">P</a></li>
+                    <li><a href="/en/countries#Q">Q</a></li>
+                    <li><a href="/en/countries#R">R</a></li>
+                    <li><a href="/en/countries#S">S</a></li>
+                    <li><a href="/en/countries#T">T</a></li>
+                    <li><a href="/en/countries#U">U</a></li>
+                    <li><a href="/en/countries#V">V</a></li>
+                    <li><a href="/en/countries#Y">Y</a></li>
+                    <li><a href="/en/countries#Z">Z</a></li>
+                </ul>
+                <ul class="droopmenu-col droopmenu-col3">
+                    <li><a href="/en/Countries/ResRep">IMF Resident Representative Offices </a></li>
+                    <li><a href="/external/pubs/cat/region.asp">IMF Regional Reports</a></li>
+					<li><a href="/en/Countries/Regions/Europe">IMF and Europe</a></li>
+                    <li><a href="/external/np/sec/memdir/members.htm">IMF Members' Quotas and Voting Power, and Board of Governors</a></li>
+                </ul>
+                <ul class="droopmenu-col droopmenu-col3">
+                    <li><a href="/en/Countries/ResRep/OAP-Home">IMF Regional Office for Asia and the Pacific</a></li>
+                    <li><a href="/en/Countries/ResRep/CDOT-Region">IMF Capacity Development Office in Thailand (CDOT)</a></li>
+                    <li><a href="/en/Countries/ResRep/CAM-Region">IMF Regional Office in Central America, Panama, and the Dominican Republic</a></li>
+                    <li><a href="/en/Countries/ResRep/ECC-Region">Eastern Caribbean Currency Union (ECCU)</a></li>
+                    <li><a href="/en/Countries/ResRep/EUR">IMF Europe Office in Paris and Brussels </a></li>
+                    <li><a href="https://www.imf.org/en/Countries/ResRep/PIS-Region">IMF Office in the Pacific Islands</a></li>
+					<li><a href="https://www.imf.org/en/Countries/ResRep/ROR/regional-office-riyadh">IMF Regional Office in Riyadh</a></li>
+                    
+                </ul>
+                
+                
+            </div><!-- droopmenu-row -->
+        </li>
+    </ul>
+</li>   
+                       
+                        
+                        <li>
+    <a href="/en/Capacity-Development">Capacity Development</a>
+    <ul class="droopmenu-megamenu droopmenu-grid">
+        <li class="droopmenu-grid-container">
+            <div class="droopmenu-row">
+                <ul class="droopmenu-col droopmenu-col3">
+                    <li><a href="/external/np/ins/english/capacity_about.htm">About Us</a></li>
+                    <li><a href="/en/Capacity-Development/what-we-do">What We Do</a></li>
+                    <li><a href="/en/Capacity-Development/how-we-work">How We Work</a></li>
+                </ul>
+                <ul class="droopmenu-col droopmenu-col3">
+                    <li><a href="/external/np/ins/english/training.htm">IMF Training</a></li>
+                    <li><a href="/en/Capacity-Development/Training/ICDTC">Digital Training Catalog</a></li>
+                    <li><a href="/external/np/ins/english/learning.htm">Online Learning</a></li>
+                </ul>
+                <ul class="droopmenu-col droopmenu-col3">
+                    <li><a href="/en/Capacity-Development/Partners">Our Partners</a></li>
+                    <li><a href="/en/Capacity-Development/cd-stories">Country Stories</a></li>
+                </ul>
+                <ul class="droopmenu-col droopmenu-col3">
+                    <li><a href="/en/Publications/SPROLLs/Technical-assistance-country-reports">Technical Assistance Country Reports</a></li>
+                    <li><a href="/en/Publications/high-level-summary-technical-assistance-reports">High-Level Summary Technical Assistance Reports</a></li> 
+                    <li><a href="/en/Capacity-Development/strategy-policies">Strategy and Policies</a></li>
+    
+                </ul>                                        
+            </div><!-- droopmenu-row -->
+        </li>
+    </ul>
+</li>   
+                        
+                        
+                        <li>
+    <a href="/en/News">News</a>
+    <ul class="droopmenu-megamenu droopmenu-grid">
+        <li class="droopmenu-grid-container">
+            <div class="droopmenu-row">
+                <ul class="droopmenu-col droopmenu-col6">
+                    <li><h4>All News</h4></li>
+                </ul>
+                <ul class="droopmenu-col droopmenu-col3">
+                    <li><h4>See Also</h4></li>
+                </ul>
+                
+                <ul class="droopmenu-col droopmenu-col3">
+                    <li><h4>For Journalists</h4></li>
+                </ul>
+            </div>
+            
+            <div class="droopmenu-row">
+                <ul class="droopmenu-col droopmenu-col3">
+					<li><a href="/en/live" title="IMF Live" class="nav-img"><img src="https://www.imf.org/~/media/Images/IMF/Live-Page/imf-live-rgb-h.ashx?la=en" srcset="https://www.imf.org/-/media/Images/IMF/Live-Page/imf-live-rgb-h-svg.ashx" alt="IMF Live"></a></li>
+                    <li><a href="/en/News/country-focus">Country Focus</a></li>
+					<li><a href="/en/News/Chart-of-the-week"> Chart of the Week</a></li>
+                    <li><a href="/en/news/searchnews#type=Communique">Communiqués</a></li>
+                    <li><a href="/en/news/searchnews#type=Mission+Concluding+Statement">Mission Concluding Statements</a></li>
+                    <li><a href="/en/news/searchnews#type=Press+Release">Press Releases</a></li>
+                </ul>
+                <ul class="droopmenu-col droopmenu-col3">
+                    <li><a href="/en/news/searchnews#type=Speech">Speeches</a></li>
+                    <li><a href="/en/news/searchnews#type=Statements+at+Donor+Meeting">Statements at Donor Meetings</a></li>
+                    <li><a href="/en/news/searchnews#type=Transcript">Transcripts</a></li>
+                    <li><a href="/en/news/searchnews#type=Views+and+Commentaries">Views &amp; Commentaries</a></li>
+                </ul>
+                <ul class="droopmenu-col droopmenu-col3">
+                    <li><a href="//blog-imfdirect.imf.org/" target="_blank">IMFBlog</a></li>
+                    <li><a href="/external/np/sec/aiv/index.htm">Article IV Consultations</a></li>
+                    <li><a href="/external/np/fsap/fssa.aspx">Financial Sector Assessment Program (FSAP)</a></li>
+                    <li><a href="/external/np/exr/seminars/index.htm">Seminars, Conferences, &amp; Other Events</a></li>
+					<li><a href="/external/cntpst/index.aspx">E-mail Notification</a></li>
+					 
+                </ul>
+                <ul class="droopmenu-col droopmenu-col3 press-center">
+                    <li><h5>Press Center</h5>
+                    <p>The IMF Press Center is a password-protected site for working journalists.</p>
+                    </li>
+                    <li><a href="http://presscenter.imf.org/" class="btn">Login</a> or <a href="https://presscenter.imf.org/Account/Register" class="btn bk-orange"> Register</a></li>
+                    <li><a href="/news/for-journalists">Information of Interest</a></li>
+                </ul>                                        
+            </div><!-- droopmenu-row -->
+        </li>
+    </ul>
+</li>   
+                        
+                        
+                         <li>
+    <a href="/external/mmedia/index.aspx" class="videos-item">Videos</a>
+    <ul class="droopmenu-megamenu droopmenu-grid">
+        <li class="droopmenu-grid-container">
+            <div class="droopmenu-row">
+                <ul class="droopmenu-col droopmenu-col4">
+					<li><a href="/en/live" title="IMF Live" class="nav-img"><img src="https://www.imf.org/~/media/Images/IMF/Live-Page/imf-live-rgb-h.ashx?la=en" srcset="https://www.imf.org/-/media/Images/IMF/Live-Page/imf-live-rgb-h-svg.ashx" alt="IMF Live"></a></li>
+                    <li>
+                                <a href="/external/mmedia/view.aspx?st=Categories&variable=About%20the%20IMF&variableId=1" title="About the IMF">About the IMF</a>
+                            </li>
+                    <li>
+                                <a href="/external/mmedia/view.aspx?st=Categories&variable=Conferences&variableId=6" title="Conferences">Conferences</a>
+                            </li>
+                    <li>
+                                <a href="/external/mmedia/view.aspx?st=Categories&variable=Press%20briefings&variableId=11" title="Press briefings">Press briefings</a>
+                            </li>
+                    <li>
+                                <a href="/external/mmedia/view.aspx?st=Categories&variable=Speeches&variableId=10" title="Speeches">Speeches</a>
+                            </li>
+                    <li>
+                                <a href="/external/mmedia/view.aspx?st=Categories&variable=Special%20Features&variableId=12" title="Special Features">Special Features</a>
+                            </li>
+                </ul>
+                
+                <ul class="droopmenu-col droopmenu-col4">
+                    <li>
+                                <a href="/external/mmedia/view.aspx?st=Categories&variable=Africa&variableId=2" title="Africa">Africa</a>
+                            </li>
+                    <li>
+                                <a href="/external/mmedia/view.aspx?st=Categories&variable=Americas&variableId=3" title="Americas">Americas</a>
+                            </li>
+                    
+                    <li>
+                                <a href="/external/mmedia/view.aspx?st=Categories&variable=Asia&variableId=5" title="Asia">Asia</a>
+                            </li>
+                    <li>
+                                <a href="/external/mmedia/view.aspx?st=Categories&variable=Europe&variableId=8" title="Europe">Europe</a>
+                            </li>
+                    <li>
+                                <a href="/external/mmedia/view.aspx?st=Categories&variable=Middle%20East%20and%20Central%20Asia&variableId=9" title="Middle East and Central Asia">Middle East and Central Asia</a>
+                            </li>
+                </ul>
+                
+                
+                <ul class="droopmenu-col droopmenu-col4">
+                    <li>
+                                <a href="/external/mmedia/view.aspx?st=Categories&variable=Economic%20Outlook&variableId=7" title="Economic Outlook">Economic Outlook</a>
+                            </li>
+                    <li>
+                                <a href="/external/mmedia/view.aspx?st=Categories&variable=Annual%20and%20spring%20meetings&variableId=4" title="Annual and spring meetings">Annual and spring meetings</a>
+                            </li>
+                    <li>
+                                <a href="/external/mmedia/view.aspx?st=Categories&variable=Capacity%20Development&variableId=22" title="Capacity Development">Capacity Development</a>
+                            </li>
+                    
+                    <li><a href="/external/mmedia/index.aspx?Sort=MostRecent">Most Recent</a></li>
+                    
+                   <li><a href="/external/mmedia/index.aspx?Sort=MostPopular">Most Popular</a></li>
+                </ul>
+                
+            </div><!-- droopmenu-row -->
+        </li>
+    </ul>
+</li>      
+                        
+                        
+                        <li>
+    <a href="/en/Data">Data</a>
+    <ul class="droopmenu-megamenu droopmenu-grid">
+    <li class="droopmenu-grid-container">
+    <div class="droopmenu-row">
+    	<ul class="droopmenu-col droopmenu-col4">
+		<li><a rel="noopener noreferrer" href="http://data.imf.org" target="_blank">IMF Data Portal</a></li>
+		<li><a href="/external/ns/cs.aspx?id=28">World Economic Outlook Databases</a></li>
+		<li><a rel="noopener noreferrer" href="/external/datamapper/datasets/AIPI" target="_blank">AI Preparedness Index</a></li>
+		<li><a rel="noopener noreferrer" href="https://climatedata.imf.org" target="_blank">Climate Change Indicators Dashboard</a></li>	   
+	</ul>
+	<ul class="droopmenu-col droopmenu-col4">
+		<li><a href="/en/data/imf-finances">IMF Finances</a></li>	
+		<li><a rel="noopener noreferrer" href="http://data.imf.org/IFS" target="_blank">International Financial Statistics</a></li>
+		<li><a rel="noopener noreferrer" href="http://data.imf.org/FAS" target="_blank">Financial Access Survey</a></li>
+		<li><a rel="noopener noreferrer" href="https://data.imf.org/gfs" target="_blank">Government Finance Statistics</a></li>
+	</ul>
+	<ul class="droopmenu-col droopmenu-col4">
+		<li><a href="/en/News/Seminars/Conferences/g20-data-gaps-initiative" target="_blank">G20 Data Gaps Initiative</a></li>	
+		<li><a rel="noopener noreferrer" href="http://data.imf.org/COFER" target="_blank">Currency Composition of Official Foreign Exchange Reserves</a></li>
+		<li><a href="/en/Topics/fiscal-policies/world-revenue-longitudinal-database">World Revenue Longitudinal Data</a></li>
+	</ul>
+    </div>
+    <!-- droopmenu-row -->
+    </li>
+</ul>
+</li>   
+                        
+                        
+                        <li>
+    <a href="/en/Publications">Publications</a>
+    <ul class="droopmenu-megamenu droopmenu-grid">
+    <li class="droopmenu-grid-container">
+    <div class="droopmenu-row">
+    <ul class="droopmenu-col droopmenu-col3">
+        <li>
+        <h4>RESOURCES</h4>
+        </li>
+    </ul>
+    <ul class="droopmenu-col droopmenu-col3">
+        <li>
+        <h4>FLAGSHIPS</h4>
+        </li>
+    </ul>
+    <ul class="droopmenu-col droopmenu-col3">
+        <li>
+        <h4>KEY SERIES</h4>
+        </li>
+    </ul>
+	<ul class="droopmenu-col droopmenu-col3">
+        <li>
+        <h4>IMF NOTES</h4>
+        </li>
+    </ul>
+    </div>
+    <div class="droopmenu-row">
+    <ul class="droopmenu-col droopmenu-col3">
+        <li><a href="/en/publications/search">Publications Advanced Search</a></li>
+		<li><a href="https://www.elibrary.imf.org/">IMF eLibrary</a></li>
+        <li><a href="https://bookstore.imf.org/">IMF Bookstore</a></li>
+		<li><a href="/en/Publications/Newsletter/registration">Publications Newsletter</a></li>
+        <li><a href="https://www.elibrary.imf.org/page/54">Essential Reading Guides</a></li>
+    </ul>
+    <ul class="droopmenu-col droopmenu-col3">
+        <li><a href="/en/publications/weo">World Economic Outlook</a></li>
+        <li><a href="/en/publications/gfsr">Global Financial Stability Report</a></li>
+        <li><a href="/en/publications/fm">Fiscal Monitor</a></li>
+        <li><a href="/en/Publications/SPROLLs/External-Sector-Reports">External Sector Report</a></li>
+		<li><a href="/en/publications/reo">Regional Economic Reports</a></li>
+    </ul>
+    <ul class="droopmenu-col droopmenu-col3">
+        <li><a href="/en/Search#sort=relevancy&amp;f:type=[PUBS,COUNTRYREPS]">Country Reports</a></li>
+		<li><a href="/en/Publications/SPROLLs/IMF-Departmental-Papers">Departmental Papers</a></li>
+        <li><a href="/en/publications/search?when=After&amp;series=Policy+Papers">Policy Papers</a></li>
+        <li><a href="/en/Publications/SPROLLs/Staff-Discussion-Notes">Staff Discussion Notes</a></li>
+        <li><a href="/en/Publications/selected-issues-papers">Selected Issues Papers</a></li>
+    </ul>
+	<ul class="droopmenu-col droopmenu-col3">
+        <li><a href="/en/Publications/imf-staff-notes">All Staff Notes Series</a></li>
+        <li><a href="/en/Publications/imf-staff-notes#Analytical-Notes">Analytical Notes</a></li>
+        <li><a href="/en/Publications/imf-staff-notes#FinTech%20Notes">Fintech Notes</a></li>
+        <li><a href="/en/Publications/imf-staff-notes#How%20to%20notes">How-To Notes</a></li>
+        <li><a href="/en/Publications/imf-staff-notes#Climate%20Notes">Staff Climate Notes</a></li>
+    </ul>
+    </div>
+    <!-- droopmenu-row -->
+    </li>
+</ul>
+</li>   
+                        
+          
+		 
+
+                      <!--   <li>
+    <a href="/external/social.htm">Social</a>
+    <ul class="droopmenu-megamenu droopmenu-grid">
+        <li class="droopmenu-grid-container">
+            <div class="droopmenu-row">
+                <ul class="droopmenu-col droopmenu-col3">
+                      
+                      <li><a href="http://www.twitter.com/imfnews" target="_blank" class="fab fa-twitter">IMF Twitter</a></li>
+                      <li><a href="https://www.facebook.com/International-Monetary-Fund-152292984850728/" target="_blank" class="fab fa-facebook-f">IMF Facebook</a></li>
+                    <li><a href="http://www.linkedin.com/company/international-monetary-fund" target="_blank" class="fab fa-linkedin-in">IMF LinkedIn</a></li>
+                </ul>
+                <ul class="droopmenu-col droopmenu-col3">
+                    <li><a href="https://www.instagram.com/the_imf/" target="_blank" class="fab fa-instagram" title="IMF Instagram">IMF Instagram</a></li>
+                    <li><a href="http://www.youtube.com/imf" target="_blank" class="fab fa-youtube">IMF YouTube</a></li>
+                    
+                    <li><a href="https://www.imf.org/en/News/Podcasts" class="far fa-podcast">IMF Podcast</a></li>
+                </ul>
+                <ul class="droopmenu-col droopmenu-col3">
+                    <li><a href="http://www.flickr.com/imfphoto" target="_blank" class="fab fa-flickr">IMF Flickr</a></li>
+                    <li><a href="/external/rss/rsslist/rsslist.aspx" class="far fa-rss">IMF RSS</a></li>
+                    <li><a href="/en/email-subscription/index" class="fas fa-envelope-open-text">IMF Email Notification</a></li>
+                </ul>
+                <ul class="droopmenu-col droopmenu-col3">
+                    <li><a href="/external/social.htm" target="_blank" class="fal fa-thumbs-up">IMF Social Media Hub</a></li>
+                    <li><a href="http://www.imf.org/app" target="_blank" class="fab fa-apple">IMF App for iOS</a></li>
+                    <li><a href="http://www.imf.org/gapp" target="_blank" class="fab fa-android">IMF App for Android</a></li>
+                </ul>                                        
+            </div>
+        </li>
+    </ul>
+</li>  -->
+
+
+                    </ul>
+                </div><!-- droopmenu-nav -->
+						<!-- END MAIN NAV -->
+						<!-- BEGIN LANG NAV -->
+						<div class="droopmenu-extra">
+							<ul class="droopmenu">                   
+                        <li>
+                        	<a title="English" href="/external/index.htm">
+                            	<i class="ion-ios-locked"></i> English
+                            </a>
+                            <ul>
+                            	<li><a title="Arabic" href="/external/arabic/index.htm">عربي</a></li>
+                                <li><a title="Chinese" href="/external/chinese/index.htm">中文</a></li>
+                                <li><a title="French" href="/external/french/index.htm">Français</a></li>
+                                <li><a title="Japanese" href="/external/japanese/index.htm">日本語</a></li>	
+                                <li><a title="Russian" href="/external/russian/index.htm">Русский</a></li>	
+                                <li><a class="last" title="Spanish" href="/external/spanish/index.htm">Español</a></li>
+                            </ul>
+                        </li>
+                        
+                    </ul>
+						</div><!-- droopmenu-extra -->
+						<!-- END LANG NAV -->
+
+					</div><!-- droopmenu-inner -->
+				</div><!-- droopmenu-navbar  -->
+				<!-- END NAV --->
+			</header>
+			<!-- END HEADER --->
+			   </div> <!-- end full width header -->
+		
+		
+	  
+		
+		
+		   <!-- BEGIN PAGE CONTENT --->
+	 <div class="full-width-content">  
+			
+	 
+		 
+		 <!-- BEGIN HERO --->
+			 <div class="full-img-wrapper">
+			 <div class="hero-background with-search">
+			<img src="19/images/fd/archive-hero2.jpg" alt="image" />
+			<div class="over-hero centered-title">
+				<div class="contain">
+					<h2>The Page You Requested Was Not Found</h2>   
+					<p class="caps">Try our new and improved search function:</p> 
+					
+					 <div class="hero-form inline-search">
+
+					
+					
+					
+					  <!-- BEGIN desktop SEARCH -->
+				<form id="searchform" class="" method="get" onSubmit="window.location.href = 'https://www.imf.org/en/search#q='+encodeURIComponent(getElementById('NewQuery').value);return false;">
+				<fieldset>
+					<input id="NewQuery" name="NewQuery" class="" type="text" />
+				</fieldset>
+				<button type="submit" class="orange">Submit</button>
+				</form>
+			 <!-- end desktop SEARCH -->
+			 
+		  
+			 
+					
+					
+	</div>				
+					
+					
+					
+					</div>
+				</div>
+
+			</div>    
+	 
+			 </div><!-- end full img-wrapper container -->
+	<!-- END HERO --->
+
+	<!-- BEGIN BELT 
+		<article class="detail-wrapper">
+			<div class="contain-70">
+				<h5>You Might Also Be Interested In:</h5>
+			</div>
+		 <div class="flex-container contain-70 padded-vertical-20">
+			 <div class="cell belt-item">
+	<a href="https://www.imf.org/en/live?_slide=piie"><img src="https://www.imf.org/-/media/Images/IMF/home-page/Main-Belt/2021/June/PIIETradeWinds.ashx?h=1080&amp;w=1920&amp;la=en" alt="">                                                    <div class="belt-caption">
+															<h5>Virtual event</h5>
+															<div>
+	<p class="btn padded-10"> <em class="fal fa-play-circle"></em><strong> </strong>Watch live</p>
+	<p>Join the Peterson Institute for International Economics discussion with Kristalina Georgieva and Cecilia Malmström on the role of trade in the recovery and policies to combat climate change.</p>                                                        </div>
+														</div>
+	</a>                                        </div>
+											<div class="cell belt-item">
+	<a href="/en/News/Articles/2021/07/13/na071521-beyond-the-pandemic-five-charts-on-germanys-economic-recovery-plan"><img src="https://www.imf.org/-/media/Images/IMF/home-page/Main-Belt/2021/June/Germany-Country-Focus-2021-Getty-Images-iStock-1307779142.ashx?h=1080&amp;w=1920&amp;la=en" alt="">                                                    <div class="belt-caption">
+															<h5>IMF Country Focus: Germany</h5>
+															<div>
+	<p class="btn padded-10"> <em class="fal fa-chevron-circle-right"></em><strong> </strong>Read More</p>
+	The IMF’s latest economic assessment of Germany recommends policy action to minimize the longer-term impact of the COVID-19 pandemic and to facilitate a greener and more inclusive recovery.                                                        </div>
+														</div>
+	</a>                                        </div>
+											<div class="cell belt-item">
+	<a href="https://www.imf.org/en/About/FAQ/special-drawing-right"><img src="https://www.imf.org/-/media/Images/IMF/home-page/Main-Belt/2021/July/sdr-allocation-faqs.ashx?h=1080&amp;w=1920&amp;la=en" alt="">                                                    <div class="belt-caption">
+															<h5>Q&amp;As on Special Drawing Rights</h5>
+															<div>
+	<p class="btn padded-10"> <em class="fal fa-chevron-circle-right"></em><strong> </strong>Learn More</p>
+	Q&amp;As covering recent questions about the new allocation of Special Drawing Rights (SDR).                                                        </div>
+														</div>
+	</a>                                        </div>
+						</div>
+			
+			
+			 END BELT MODULE -->
+		 
+		 
+		 
+		  <!-- BEGIN LATEST RELEASES -->
+			<div class="flex-container flex-wrap padded-vertical-20 bg-lightest-grey">
+				<div class="cell contain-indent">
+					<h4><a href="/external/what/whatsnewenglish/what.aspx">Latest Releases</a></h4>
+				</div>
+				<div class="cell contain-indent" data-ng-controller="whatsNewCtrl" ng-init="$last && finished()">
+
+					<!-- BEGIN WHATSNEW -->
+
+					<ul>
+						<li data-ng-repeat="module in whatsNewItems">
+							<div class="high">
+
+								<p><a href="{{ module.TitleURL }}">{{ module.Title }}</a></p>
+								<p class="date">
+									{{ module.DisplayDate }}<br />
+								</p>
+							</div>
+						</li>
+					</ul>
+					<a href="/external/what/whatsnewenglish/what.aspx" class="btn right-float">More</a>
+
+					<!-- BEGIN WHATSNEW -->
+
+				</div>
+
+			</div>
+			<!-- END LATEST RELEASES -->
+			
+			
+		<!-- SDR
+	<div class="full-width text-center bg-blue">
+	<div class="sdrbelt">
+	<b><span>SDR Rates for July 20, 2021</span></b>
+	SDR Interest Rate = <span>0.050%</span> <span class="lin">|</span> 1 USD = <span>SDR 0.703812</span>
+	<a href="https://www.imf.org/external/np/fin/data/param_rms_mth.aspx" class="more">MORE</a>
+	</div>
+	</div>
+	 END SDR -->
+		 <!-- BEGIN SDR -->
+			<div class="full-width text-center bg-blue">
+				<div class="sdrbelt">
+<b><span>SDR Rates for June 24</span></b>
+SDR Interest Rate = <span>2.941%</span> <span class="lin">|</span> 1 USD = <span>SDR 0.731207</span>
+<a href="/external/np/fin/data/param_rms_mth.aspx" class="more">MORE</a>
+</div>
+
+			</div>
+			<!-- END SDR -->
+			
+			
+			<div class="flex-container flex-wrap padded-vertical-20 bg-lightest-grey">
+	<div class="contain-70">
+	<h4>Resources For</h4>
+	</div>
+	<div class="contain-70 flex-container">
+	<div class="icon-text">
+	<a href="/en/About/Partners/civil-society"><img src="https://www.imf.org/~/media/Images/IMF/home-page/Others/Person-Group.ashx" srcset="https://www.imf.org/~/media/Images/IMF/home-page/Others/Person-Group.ashx" alt="Civil Society" class="small-logo"></a>
+	<p class="small-caps"><a href="/en/About/Partners/civil-society">Civil Society</a></p>
+	</div>
+	<div class="icon-text">
+	<a href="/en/About/Partners/Youth"><img src="https://www.imf.org/~/media/Images/IMF/home-page/Others/youth-icon.ashx" srcset="https://www.imf.org/~/media/Images/IMF/home-page/Others/youth-icon.ashx" alt="Youth" class="small-logo"></a>
+	<p class="small-caps"><a href="/en/About/Partners/Youth">Youth</a></p>
+	</div>
+	<div class="icon-text">
+	<a href="https://www.imf.org/news/for-journalists"><img src="https://www.imf.org/~/media/Images/IMF/home-page/Others/Newspaper.ashx" srcset="https://www.imf.org/~/media/Images/IMF/home-page/Others/Newspaper.ashx" alt="Journalists" class="small-logo"></a>
+	<p class="small-caps"><a href="https://www.imf.org/news/for-journalists">Journalists</a></p>
+	</div>
+	<div class="icon-text">
+	<a href="/en/About/Partners/Legislators"><img src="https://www.imf.org/~/media/Images/IMF/home-page/Others/Bank.ashx" srcset="https://www.imf.org/~/media/Images/IMF/home-page/Others/Bank.ashx" alt="Legislators" class="small-logo"></a>
+	<p class="small-caps"><a href="/en/About/Partners/Legislators">Legislators</a></p>
+	</div>
+	<div class="icon-text">
+	<a href="/en/About/Recruitment"><img src="https://www.imf.org/~/media/Images/IMF/home-page/Others/Career.ashx" srcset="https://www.imf.org/~/media/Images/IMF/home-page/Others/Career.ashx" alt="Careers" class="small-logo"></a>
+	<p class="small-caps"><a href="/en/About/Recruitment">Careers</a></p>
+	</div>
+	</div>
+	</div>
+			
+			
+			
+			
+			
+			<div class="full-width bg-light-grey padded-vertical-20">
+						<div class="contain-70">
+
+					<h4 class="ko no-top-margin">Publications</h4>
+					<div class="flex-container flex-wrap publications-module">
+
+										<div class="card-item-small">
+											<a href="/en/Publications/WEO/Issues/2025/01/17/world-economic-outlook-update-january-2025">
+	<img src="https://www.imf.org/-/media/Images/IMF/Publications/WEO/weo-nodate.ashx?h=776&amp;w=600&amp;la=en" alt="World Economic Outlook">                                        </a>
+											<ul>
+												<li>
+													<p>January 2025</p>
+												</li>
+												<li>
+													<a href="/en/Publications/WEO/Issues/2025/01/17/world-economic-outlook-update-january-2025" >Global Growth: Divergent and Uncertain</a>
+
+												</li>
+											</ul>
+										</div>
+										<div class="card-item-small">
+												<a href="/en/Publications/GFSR/Issues/2024/10/22/global-financial-stability-report-october-2024">
+	<img src=https://www.imf.org/-/media/Images/IMF/Publications/GFSR/gfsr-nodate.ashx?h=776&amp;w=600&amp;la=en" alt="Global Financial Stability Report" />                                            </a>
+												<ul>
+													<li>
+														<p>
+															October 2024
+														</p>
+													</li>
+													<li>
+															<a href="/en/Publications/GFSR/Issues/2024/10/22/global-financial-stability-report-october-2024">Steadying the Course: Uncertainty, Artificial Intelligence, and Financial Stability</a>
+
+													</li>
+												</ul>
+											</div>
+										<div class="card-item-small">
+												<a href="/en/Publications/FM/Issues/2024/10/23/fiscal-monitor-october-2024">
+	<img src="https://www.imf.org/-/media/Images/IMF/Publications/FM/fm-nodate.ashx?h=776&amp;w=600&amp;la=en" alt="Fiscal Monitor" />                                            </a>
+												<ul>
+													<li>
+														<p>
+															October 2024
+														</p>
+													</li>
+													<li>
+															<a href="/en/Publications/FM/Issues/2024/10/23/fiscal-monitor-october-2024">Putting a Lid on Public Debt</a>
+
+													</li>
+												</ul>
+											</div>
+
+						
+					<div class="card-item-small">
+	<a href="https://www.imf.org/en/Publications/REO" target="_blank" rel="noopener noreferrer" ><img src="https://www.imf.org/-/media/Images/IMF/home-page/Publication-Belt/2021/January/REOs.ashx?h=776&w=600&la=en" alt="Regional Economic Outlook Reports, All Regions" /></a>
+						<ul>
+							<li>
+
+								
+								<p>
+									Regional Economic Outlooks
+								</p>
+							</li>
+							<li>
+	<a href="https://www.imf.org/en/Publications/REO" target="_blank" rel="noopener noreferrer" >Latest Issues</a>                        </li>
+						</ul>
+					</div>
+						
+						
+						 <div class="card-item-small">
+	<a href="https://www.imf.org/en/Publications/fandd" ><img src="https://www.imf.org/-/media/Images/IMF/FANDD/issue-covers/2025/PUB-HP-FD-cover-mar25.ashx?h=776&w=600&la=en" alt="" /></a>
+						<ul>
+							<li>
+										<p>
+											March 2025
+										</p>
+								<p>
+									Finance & Development
+								</p>
+								
+
+							</li>
+							<li>
+	<a href="https://www.imf.org/en/Publications/fandd" >The Talent Equation</a>                       
+							</li>
+						</ul>
+					</div>
+						
+						
+							
+						 <div class="card-item-small">
+	<a href="https://www.imf.org/external/pubs/ft/ar/2024/" ><img src="https://www.imf.org/-/media/Images/IMF/Publications/annual-report/Annual-Report-2024-v2.ashx?h=776&w=600&la=en" alt="" /></a>
+						<ul>
+							<li>
+										<p>
+											September 2024
+										</p>
+								<p>
+									Annual Report
+								</p>
+							</li>
+							<li>
+	<a href="https://www.imf.org/external/pubs/ft/ar/2024/" >Resilience in the Face of Change</a>                        </li>
+						</ul>
+					</div>
+
+				  
+
+
+			  
+
+
+
+					</div>
+
+
+
+
+							
+
+						</div>
+			 
+			
+			
+	</div>
+	<!--END FULL WIDTH CONTAINER --> 
+		
+		
+
+		
+		 </div>
+		<!-- END PAGE CONTENT ---> 
+		
+		
+		
+			 
+			  <div class="full-width-footer">
+
+	  <!-- BEGIN FOOTER --> 
+			 <footer role="contentInfo" aria-label="site footer" class="page-footer">
+				 
+			 <div class="flex-container contain-indent padded-vertical-40">
+				 
+				 <div class="cell align-self-top flex-quarter">
+			  <a href="/en/home"><img src="https://www.imf.org/external/19/images/footer/IMF_seal.png" srcset="https://www.imf.org/external/19/images/footer/IMF_seal.svg" alt="International Monetary Fund" class="foot-logo" /></a>
+		  </div>
+	 
+		
+		  
+	   <div class="flex-three-quarter footer-links text-right">
+		  <ul>
+			<li><a href="/en/About">About</a></li>
+			<li><a href="/en/Research">Research</a></li>
+			<li><a href="/en/Countries">Countries</a></li>
+			<li><a href="/en/Capacity-Development">Capacity Development</a></li>
+			<li><a href="/en/News">News</a></li>
+			<li><a href="/external/np/exr/seminars/index.htm">Events</a></li>
+		  </ul>
+	   
+		  <ul>
+			<li><a href="/external/mmedia/index.aspx">Videos</a></li>
+			<li><a href="/en/Data">Data</a></li>
+			<li><a href="/en/Publications">Publications</a></li>
+			<li><a href="/external/social.htm">Social Media Hub</a></li>
+			<li><a href="/external/pubs/ft/ar/2018/eng/index.htm">Annual Report</a></li>
+			  <li><a href="/external/terms.htm">Copyright and Usage</a></li>
+		  </ul>
+		
+		  <ul>
+			<li><a href="/external/privacy.htm">Privacy Policy</a></li>
+			<li><a href="/external/np/exr/contacts/contacts.aspx">Contact Us</a></li>
+			<li><a href="/external/np/adm/rec/recruit.htm">Careers</a></li>
+			<li><a href="/external/np/exr/glossary/index.asp">Glossary</a></li>
+			<li><a href="/external/scams.htm" title="Scam Alert">Scam Alert</a></li>
+		  </ul>
+		
+		  <ul class="navlanguage">
+			<li lang="ar" xml:lang="ar"><a href="/external/arabic/index.htm" title="Arabic">&#1593;&#1585;&#1576;&#1610;</a></li>
+			<li lang="ch" xml:lang="ch"><a href="/external/chinese/index.htm" title="Chinese">&#20013;&#25991;</a></li>
+			<li lang="fr" xml:lang="fr"><a href="/external/french/index.htm" title="French">Fran&#231;ais</a></li>
+			<li lang="ja" xml:lang="ja"><a href="/external/japanese/index.htm" title="Japanese">&#26085;&#26412;&#35486;</a></li>
+			<li lang="ru" xml:lang="ru"><a href="/external/russian/index.htm" title="Russian">&#1056;&#1091;&#1089;&#1089;&#1082;&#1080;&#1081;</a></li>
+			<li lang="es" xml:lang="es"><a href="/external/spanish/index.htm" title="Spanish" class="last">Espa&#241;ol</a></li>
+		  </ul>
+				 </div>  
+		  
+
+					 
+				 </div>
+				 <div class="flex-container contain-indent padded-vertical-20">
+					 
+					 <div class="cell flex-half text-left">
+						 <p class="small-grey-text all-caps">&copy; International Monetary Fund. All rights reserved.</p>
+					 </div>
+					 
+					 
+				 <div class="cell flex-half align-right text-right">
+			<ul class="social-hz">
+				<li><a href="http://www.twitter.com/imfnews" target="_blank" class="fab fa-x-twitter" title="Follow IMF Twitter"></a></li>
+				<li><a href="https://www.facebook.com/International-Monetary-Fund-152292984850728/" class="fab fa-facebook-f" target="_blank" title="Follow IMF Facebook"></a></li>
+				<li><a href="http://www.linkedin.com/company/international-monetary-fund" class="fab fa-linkedin-in" target="_blank" title="Follow IMF LinkedIn"></a></li>
+				<li><a href="https://www.instagram.com/the_imf/" class="fab fa-instagram" target="_blank" title="Follow IMF Instagram"></a></li>
+				<li><a href="https://www.threads.net/@the_imf/" class="fab fa-threads" target="_blank" title="Follow the IMF on Threads"></a></li>
+				<li><a href="http://www.youtube.com/imf" class="fab fa-youtube" target="_blank" title="Follow IMF Youtube"></a></li>
+				<li><a href="/en/news/podcasts" class="far fa-podcast" title="IMF Podcasts"></a></li>
+				<li><a href="/external/cntpst/index.aspx" class="fas fa-envelope-open-text" title="Subscribe to IMF Emails"></a></li>
+				<li><a href="/en/live" title="IMF Live" class="nav-img"><img src="https://www.imf.org/~/media/Images/IMF/Live-Page/imf-live-rgb-h.ashx?la=en" srcset="https://www.imf.org/-/media/Images/IMF/Live-Page/imf-live-rgb-h-svg.ashx" alt="IMF Live"></a></li>
+			</ul>
+		  </div>
+	 </div>
+	</footer>
+	<!-- END FOOTER -->  
+				 </div> <!-- end full width footer -->      
+
+	   
+		
+		
+		
+	<!-- The JavaScript -->
+	   <script
+	  src="https://code.jquery.com/jquery-3.4.1.min.js"
+	  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+	  crossorigin="anonymous"></script>
+
+		
+	  <!-- Droopmenu js -->
+		   
+			<script type="text/javascript" src="/external/19/js/droopmenu-min.js"></script>
+		
+		<script type="text/javascript" src="/external/19/js/scripts-min.js"></script>
+			<script type="text/javascript">
+			
+			/*	--------------------------------------------------
+				:: Initialize mega menu
+				-------------------------------------------------- */
+				jQuery(function($){
+					$('.droopmenu-navbar').droopmenu({
+						dmArrow:true,
+						dmArrowDirection:'dmarrowup'
+					});				
+				});
+				
+			</script>  
+		<script type="text/javascript">
+	   
+			
+	  $(document).ready(function() {
+		 
+				$(".fa-search").click(function() {
+				   $(".search-box").toggle();
+				   $("input[type='text'].search").focus();
+				 });
+		  
+			});  
+			
+			$(document).ready(function(){ 
+		$(window).scroll(function(){ 
+			if ($(this).scrollTop() > 100) { 
+				$('#scroll').fadeIn(); 
+			} else { 
+				$('#scroll').fadeOut(); 
+			} 
+		}); 
+		$('#scroll').click(function(){ 
+			$("html, body").animate({ scrollTop: 0 }, 600); 
+			return false; 
+		}); 
+	});
+		   
+		 
+	</script>
+
+
+
+	  
+
+	</body>
+	</html>

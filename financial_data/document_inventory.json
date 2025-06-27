@@ -1,0 +1,200 @@
+[
+  {
+    "name": "boe-2025-bank-capital-stress-test-scenarios.xlsx",
+    "description": "Bank of England 2025 Bank Capital Stress Test - Variable paths and macroeconomic scenarios for stress testing",
+    "relevance": "Critical - Current BoE stress test scenarios with specific variable paths for GDP, unemployment, house prices, commercial real estate",
+    "year": 2025,
+    "format": "Excel",
+    "size_info": "0.2 MB",
+    "file_size_bytes": 198937,
+    "download_date": "2025-06-26",
+    "status": "Downloaded"
+  },
+  {
+    "name": "boe-2025-traded-risk-scenario.xlsx",
+    "description": "Bank of England 2025 Trading Risk Scenario - Market stress conditions for trading portfolios",
+    "relevance": "High - Specific trading book stress scenarios for market risk assessment",
+    "year": 2025,
+    "format": "Excel",
+    "size_info": "0.1 MB",
+    "file_size_bytes": 120616,
+    "download_date": "2025-06-26",
+    "status": "Downloaded"
+  },
+  {
+    "name": "boe-2024-desk-based-stress-test-scenarios.xlsx",
+    "description": "Bank of England 2024 Desk-based Stress Test - Variable paths for macroeconomic scenarios",
+    "relevance": "High - Recent BoE stress test with specific economic scenario variables",
+    "year": 2024,
+    "format": "Excel",
+    "size_info": "0.4 MB",
+    "file_size_bytes": 401315,
+    "download_date": "2025-06-26",
+    "status": "Downloaded"
+  },
+  {
+    "name": "boe-2022-23-stress-test-scenarios.xlsx",
+    "description": "Bank of England 2022/23 Annual Cyclical Scenario - Complete stress test variable paths",
+    "relevance": "High - Comprehensive historical stress test example with actual results available",
+    "year": 2022,
+    "format": "Excel",
+    "size_info": "0.3 MB",
+    "file_size_bytes": 327065,
+    "download_date": "2025-06-26",
+    "status": "Downloaded"
+  },
+  {
+    "name": "boe-2022-23-stress-test-results-annex.pdf",
+    "description": "Bank of England 2022/23 Stress Test Results Annex - Detailed bank-by-bank results and methodology",
+    "relevance": "Critical - Actual stress test results showing how banks performed under scenarios",
+    "year": 2023,
+    "format": "PDF",
+    "size_info": "46 pages",
+    "file_size_bytes": 416554,
+    "download_date": "2025-06-26",
+    "status": "Downloaded"
+  },
+  {
+    "name": "fed-2024-dfast-stress-test-results.pdf",
+    "description": "Federal Reserve 2024 DFAST Stress Test Results - Comprehensive bank capital adequacy assessment",
+    "relevance": "Critical - Most recent Fed stress test with bank-specific results, $685B total projected losses",
+    "year": 2024,
+    "format": "PDF",
+    "size_info": "68 pages",
+    "file_size_bytes": 2179454,
+    "download_date": "2025-06-26",
+    "status": "Downloaded"
+  },
+  {
+    "name": "fed-2024-exploratory-analysis-results.pdf",
+    "description": "Federal Reserve 2024 Exploratory Analysis - Additional stress scenarios including funding and trading risks",
+    "relevance": "High - Exploratory scenarios for hedge fund failures, deposit repricing stress, and trading book shocks",
+    "year": 2024,
+    "format": "PDF",
+    "size_info": "18 pages",
+    "file_size_bytes": 1644448,
+    "download_date": "2025-06-26",
+    "status": "Downloaded"
+  },
+  {
+    "name": "fed-2023-dfast-stress-test-results.pdf",
+    "description": "Federal Reserve 2023 DFAST Stress Test Results - Previous year comparison data",
+    "relevance": "Medium-High - Historical comparison for stress test evolution and methodology changes",
+    "year": 2023,
+    "format": "PDF",
+    "size_info": "60 pages",
+    "file_size_bytes": 2140762,
+    "download_date": "2025-06-26",
+    "status": "Downloaded"
+  },
+  {
+    "name": "bis-quarterly-review-2024.pdf",
+    "description": "BIS Quarterly Review September 2024 - International banking and financial stability analysis",
+    "relevance": "High - International perspective on banking stability and stress testing methodologies",
+    "year": 2024,
+    "format": "PDF",
+    "size_info": "102 pages",
+    "file_size_bytes": 2202913,
+    "download_date": "2025-06-26",
+    "status": "Downloaded"
+  },
+  {
+    "name": "boe-2021-climate-stress-test-results.pdf",
+    "description": "Bank of England 2021 Climate Biennial Exploratory Scenario - Climate transition and physical risk stress testing",
+    "relevance": "Medium-High - Innovative approach to climate risk stress testing with transition and physical risk scenarios",
+    "year": 2022,
+    "format": "PDF",
+    "size_info": "2.0 MB",
+    "file_size_bytes": 2143066,
+    "download_date": "2025-06-26",
+    "status": "Downloaded"
+  },
+  {
+    "name": "boe-stress-test-data-framework-manual.pdf",
+    "description": "Bank of England Stress Test Data Framework Manual - Comprehensive guide to stress test data collection and methodology",
+    "relevance": "High - Detailed methodology for stress test implementation, data templates, and reporting requirements",
+    "year": 2022,
+    "format": "PDF",
+    "size_info": "89 pages",
+    "file_size_bytes": 1717113,
+    "download_date": "2025-06-26",
+    "status": "Downloaded"
+  },
+  {
+    "name": "boe-stress-test-data-dictionary.xlsx",
+    "description": "Bank of England Stress Test Data Dictionary - Definitions, validations, and data specifications",
+    "relevance": "High - Technical specifications for stress test data fields, validations, and reconciliations",
+    "year": 2022,
+    "format": "Excel",
+    "size_info": "2.5 MB",
+    "file_size_bytes": 2643756,
+    "download_date": "2025-06-26",
+    "status": "Downloaded"
+  },
+  {
+    "name": "basel-iii-monitoring-report-2024.pdf",
+    "description": "Basel Committee Basel III Monitoring Report - Global regulatory capital implementation and stress testing practices",
+    "relevance": "Medium-High - International regulatory framework context for stress testing",
+    "year": 2024,
+    "format": "PDF",
+    "size_info": "29 pages",
+    "file_size_bytes": 588019,
+    "download_date": "2025-06-26",
+    "status": "Downloaded"
+  },
+  {
+    "name": "boe-2024-ccp-stress-test-scenarios.xlsx",
+    "description": "Bank of England 2024 Central Counterparty Stress Test - Market stress scenarios for clearing houses",
+    "relevance": "Medium - Specialized stress testing for financial market infrastructure",
+    "year": 2024,
+    "format": "Excel",
+    "size_info": "0.2 MB",
+    "file_size_bytes": 178592,
+    "download_date": "2025-06-26",
+    "status": "Downloaded"
+  },
+  {
+    "name": "imf-gfsr-october-2024.pdf",
+    "description": "IMF Global Financial Stability Report October 2024 - Global financial vulnerabilities and stress testing implications",
+    "relevance": "High - International context for stress testing scenarios and global financial risks",
+    "year": 2024,
+    "format": "PDF",
+    "size_info": "0.1 MB",
+    "file_size_bytes": 55114,
+    "download_date": "2025-06-26",
+    "status": "Downloaded"
+  },
+  {
+    "name": "fred-national-financial-conditions-index.csv",
+    "description": "Chicago Fed National Financial Conditions Index - Weekly measure of financial stress",
+    "relevance": "Critical - Real-time financial stress indicator widely used in stress testing",
+    "year": 2024,
+    "format": "CSV",
+    "size_info": "CSV with 2 columns",
+    "file_size_bytes": 53462,
+    "download_date": "2025-06-26",
+    "status": "Downloaded"
+  },
+  {
+    "name": "fred-high-yield-credit-spreads.csv",
+    "description": "ICE BofA US High Yield Option-Adjusted Spread - Credit risk indicator",
+    "relevance": "High - Key indicator of credit market stress and risk appetite",
+    "year": 2024,
+    "format": "CSV",
+    "size_info": "CSV with 2 columns",
+    "file_size_bytes": 118235,
+    "download_date": "2025-06-26",
+    "status": "Downloaded"
+  },
+  {
+    "name": "fred-vix-volatility-index.csv",
+    "description": "CBOE Volatility Index (VIX) - Market volatility and fear gauge",
+    "relevance": "High - Market sentiment indicator used in stress testing scenarios",
+    "year": 2024,
+    "format": "CSV",
+    "size_info": "CSV with 2 columns",
+    "file_size_bytes": 153567,
+    "download_date": "2025-06-26",
+    "status": "Downloaded"
+  }
+]
