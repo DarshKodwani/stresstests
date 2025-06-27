@@ -8,12 +8,22 @@ azure-ai-projects
 azure-identity
 azure-ai-inference
 
+# Azure Search for vector indexing
+azure-search-documents
+azure-core
+openai
+
 # Environment management
 python-dotenv
 
 # Data handling and utilities
 typing-extensions
 pydantic
+pandas
+openpyxl
+PyPDF2
+tiktoken
 
 # API requests
 requests
+aiohttp
