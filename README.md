@@ -1,265 +1,232 @@
-# Multi-Agent Research System
+# Financial Stress Test Research System
 
-A sophisticated multi-agent research system built with LangGraph and Azure OpenAI that coordinates specialized AI agents to conduct comprehensive research on any topic.
+[![Azure](https://img.shields.io/badge/Azure-OpenAI-blue)](https://azure.microsoft.com/en-us/products/ai-services/openai-service)
+[![LangGraph](https://img.shields.io/badge/LangGraph-Multi--Agent-green)](https://github.com/langchain-ai/langgraph)
+[![Python](https://img.shields.io/badge/Python-3.8+-yellow)](https://python.org)
+[![License](https://img.shields.io/badge/License-MIT-red)](LICENSE)
 
-## 🌟 Features
+A sophisticated multi-agent research system specifically designed for financial stress testing analysis. Built with LangGraph and Azure OpenAI, it coordinates specialized AI agents to conduct comprehensive research on stress testing scenarios, regulatory frameworks, and macroeconomic risk modeling.
 
-- **🎯 Lead Agent**: Orchestrates research tasks and coordinates other agents
-- **🔍 Parallel Search Agents**: 
-  - Academic Search Agent (scholarly articles, papers)
-  - Web Search Agent (current news, industry reports)
-  - Data Search Agent (statistics, quantitative data)
-- **📝 Citations Agent**: Verifies sources and formats citations
-- **🧠 Synthesis Agent**: Creates comprehensive final reports
-- **⚡ Real-time Verbose Output**: See each agent's work in beautiful terminal display
+## � Purpose & Overview
 
-## 🏗️ Architecture
+This system enables financial risk professionals, regulators, and researchers to:
 
-Based on Anthropic's multi-agent research architecture, this system uses LangGraph to coordinate agents in parallel execution patterns:
+- **Analyze stress testing scenarios** from major central banks (Fed, BOE, ECB)
+- **Research regulatory frameworks** and capital adequacy requirements
+- **Model macroeconomic stress scenarios** with geopolitical risk factors
+- **Access real financial documents** through Azure AI Search vector indexing
+- **Generate comprehensive reports** combining academic research, current market data, and regulatory guidance
 
+The system leverages a curated collection of real stress testing documents from the Federal Reserve, Bank of England, Basel Committee, and other regulatory bodies, all indexed and searchable through Azure AI Search.
+
+## 🌟 Key Features
+
+- **🏦 Financial Document Vector Search**: Search through indexed PDFs, Excel files, and CSV data from regulatory institutions
+- **🔍 Multi-Source Research**: Combines academic papers (arXiv), web search (Brave API), and indexed financial documents
+- **📊 Stress Testing Focus**: Specialized prompts and workflows for financial risk scenarios
+- **⚡ Real-time Analysis**: Parallel agent execution for comprehensive research
+- **🎯 Regulatory Intelligence**: Direct access to Fed DFAST, BOE stress tests, Basel frameworks
+- **📝 Professional Reports**: Citation-backed synthesis with quantitative findings
+
+## 🏗️ Architecture & Structure
+
+### System Architecture
 ```
-User Query → Lead Agent → [Academic, Web, Data] Search Agents (Parallel) → Citations Agent → Synthesis Agent → Final Report
+User Query → Lead Agent → [Academic Search | Web Search | Data Search] → Citations → Synthesis
+                                           ↓
+                                   Azure AI Search Index
+                                   (Financial Documents)
 ```
 
-## 🚀 Quick Start
+### Project Structure
+```
+stresstests/
+├── agents.py                    # Multi-agent definitions and configurations
+├── workflow.py                  # LangGraph orchestration (main entry point)
+├── tools.py                     # Search utilities (arXiv, Brave, Azure)
+├── add_documents_to_index.py    # Document ingestion pipeline
+├── run_research.py              # Interactive research interface
+├── quick_research.py            # Command-line research tool
+├── requirements.txt             # Python dependencies
+├── financial_data/              # Indexed regulatory documents
+│   ├── fed-2023-dfast-*.pdf    # Federal Reserve stress test results
+│   ├── boe-stress-test-*.pdf   # Bank of England scenarios
+│   ├── basel-*.pdf             # Basel Committee frameworks
+│   └── *.xlsx, *.csv          # Economic data and spreadsheets
+├── .env.example                # Environment template
+└── README.md                   # This documentation
+```
+
+## 🤖 Multi-Agent System
+
+### Lead Agent (Orchestrator)
+- **Role**: Coordinates the entire research process
+- **Function**: Breaks down stress testing queries into specific research subtasks
+- **Output**: Research coordination and task distribution
+
+### Academic Search Agent
+- **Role**: Finds scholarly research on financial risk and stress testing
+- **Data Source**: arXiv API for academic papers
+- **Focus**: Peer-reviewed research, methodologies, theoretical frameworks
+- **Output**: Academic citations with specific research findings
+
+### Web Search Agent  
+- **Role**: Discovers current market developments and news
+- **Data Source**: Brave Search API for privacy-focused web search
+- **Focus**: Recent regulatory announcements, market trends, industry reports
+- **Output**: Current market intelligence and real-world applications
+
+### Data Search Agent (Azure AI Search)
+- **Role**: Searches indexed financial stress test documents
+- **Data Source**: Azure AI Search vector index with 1000+ financial documents
+- **Focus**: Fed DFAST results, BOE scenarios, Basel requirements, ECB guidance
+- **Output**: Quantitative data, regulatory findings, and institutional analysis
+
+### Citations Agent
+- **Role**: Verifies sources and ensures proper attribution
+- **Function**: Validates credibility of financial sources and regulatory documents
+- **Output**: Properly formatted citations and source verification
+
+### Synthesis Agent
+- **Role**: Creates comprehensive final reports
+- **Function**: Combines findings from all agents into coherent analysis
+- **Output**: Professional stress testing research reports with actionable insights
+
+## 🚀 Getting Started
 
 ### Prerequisites
-
 - Python 3.8+
 - Azure OpenAI API access
-- Virtual environment (recommended)
+- Azure AI Search service
+- Brave Search API key (optional, for web search)
 
 ### Installation
 
-1. Clone the repository:
+1. **Clone the repository**:
 ```bash
-git clone https://github.com/yourusername/multi-agent-research.git
-cd multi-agent-research
+git clone https://github.com/DarshKodwani/stresstests.git
+cd stresstests
 ```
 
-2. Create and activate virtual environment:
+2. **Create virtual environment**:
 ```bash
-python -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
 
-3. Install dependencies:
+3. **Install dependencies**:
 ```bash
 pip install -r requirements.txt
 ```
 
-4. Set up environment variables:
+### Configuration
+
+4. **Set up environment variables**:
 ```bash
 cp .env.example .env
-# Edit .env with your Azure OpenAI credentials
 ```
 
-### Usage
+Edit `.env` with your credentials:
+```env
+# Azure OpenAI (Required)
+AZURE_OPENAI_ENDPOINT=https://your-endpoint.openai.azure.com/
+AZURE_OPENAI_DEPLOYMENT_NAME=gpt-4
+AZURE_OPENAI_API_KEY=your-api-key
+AZURE_OPENAI_API_VERSION=2024-02-01
 
-Run a research query:
+# Azure AI Search (Required for Data Search Agent)
+AZURE_SEARCH_ENDPOINT=https://your-search.search.windows.net
+AZURE_SEARCH_KEY=your-admin-key
+
+# Azure OpenAI Embeddings (Required for vector search)
+AZURE_OPENAI_EMBEDDINGS_ENDPOINT=https://your-endpoint.openai.azure.com/
+AZURE_OPENAI_EMBEDDINGS_API_KEY=your-api-key
+AZURE_OPENAI_EMBEDDINGS_DEPLOYMENT_NAME=text-embedding-3-large
+
+# Brave Search API (Optional, for web search)
+BRAVE_SEARCH_API_KEY=your-brave-api-key
+```
+
+5. **Index financial documents** (if not already done):
+```bash
+python add_documents_to_index.py
+```
+
+## 📖 Usage
+
+### Method 1: Run Default Stress Testing Query
 ```bash
 python workflow.py
 ```
+This runs the built-in geopolitical stress testing scenario query.
 
-Or use programmatically:
+### Method 2: Interactive Research Session
+```bash
+python run_research.py
+```
+Choose from pre-configured financial queries or enter your own.
+
+### Method 3: Quick Command-Line Research
+```bash
+python quick_research.py "What are the Fed 2023 DFAST stress test results?"
+```
+
+### Method 4: Programmatic Usage
 ```python
 from workflow import run_research
 
-result = run_research("What are the latest developments in quantum computing?")
-print(result["messages"][-1].content)
+# Run stress testing research
+result = run_research(
+    "What are the top 3 scenarios for modeling geopolitical risk in stress tests?",
+    verbose=True
+)
+
+# Access final synthesis
+final_report = result["messages"][-1].content
+print(final_report)
 ```
 
-## 📁 Project Structure
+## 💡 Examples
 
-```
-multi-agent-research/
-├── agents.py              # Agent definitions and configurations
-├── workflow.py            # LangGraph workflow orchestration
-├── requirements.txt       # Python dependencies
-├── .env.example          # Environment variables template
-├── .env                  # Your actual environment variables (not tracked)
-├── .gitignore           # Git ignore patterns
-├── README.md            # This file
-└── LICENSE              # MIT License
-```
+### Sample Queries
+- `"What were the key findings from the 2023 Federal Reserve DFAST stress test results?"`
+- `"How do Bank of England climate stress test scenarios compare to Fed approaches?"`
+- `"What are the Basel III capital requirements for systemic risk buffers?"`
+- `"Compare stress testing methodologies between major central banks"`
+- `"What macroeconomic scenarios should I model for Middle East geopolitical risk?"`
 
-## 🔧 Configuration
+### Expected Output Structure
+Each query produces:
+1. **Academic Research**: Scholarly papers on stress testing methodologies
+2. **Current Intelligence**: Recent regulatory announcements and market developments  
+3. **Regulatory Data**: Specific findings from indexed Fed/BOE/ECB documents
+4. **Citations**: Properly attributed sources with institutional backing
+5. **Synthesis**: Comprehensive analysis combining all research streams
 
-Set up your `.env` file with Azure OpenAI credentials:
+## 📁 File Structure Reference
 
-```env
-AZURE_OPENAI_ENDPOINT=https://your-endpoint.openai.azure.com/
-AZURE_OPENAI_DEPLOYMENT_NAME=your-deployment-name
-AZURE_OPENAI_API_KEY=your-api-key
-AZURE_OPENAI_API_VERSION=2024-02-15-preview
-```
-
-## 🤖 Agents
-
-### Lead Agent
-- Breaks down research queries into subtasks
-- Coordinates specialized search agents
-- Manages overall research workflow
-
-### Academic Search Agent
-- Focuses on peer-reviewed papers and scholarly sources
-- Provides academic context and theoretical frameworks
-- Cites specific studies and researchers
-
-### Web Search Agent
-- Searches current news, industry reports, and web content
-- Finds real-world applications and market trends
-- Gathers recent developments and announcements
-
-### Data Search Agent
-- Specializes in statistics and quantitative information
-- Finds market research and survey data
-- Provides measurable insights and benchmarks
-
-### Citations Agent
-- Verifies source credibility and reliability
-- Formats citations properly (APA/MLA standards)
-- Flags unsubstantiated claims
-
-### Synthesis Agent
-- Combines findings from all agents
-- Identifies patterns and contradictions
-- Creates comprehensive final reports
-
-## 🔄 Workflow
-
-The system uses LangGraph for sophisticated agent coordination:
-
-1. **User Query Processing**: Lead agent analyzes and breaks down the request
-2. **Parallel Research**: Multiple search agents work simultaneously
-3. **Source Verification**: Citations agent validates findings
-4. **Report Synthesis**: Final agent creates comprehensive report
-
-## 🛠️ Development
-
-### Adding New Agents
-
-1. Define agent function in `agents.py`:
-```python
-def new_agent(state: ResearchState):
-    system_prompt = "Your agent's role and instructions..."
-    messages = [SystemMessage(content=system_prompt)] + state["messages"]
-    response = llm.invoke(messages)
-    return {"messages": [response]}
-```
-
-2. Add to workflow in `workflow.py`:
-```python
-workflow.add_node("new_agent", new_agent)
-workflow.add_edge("previous_agent", "new_agent")
-```
-
-### Extending State
-
-Modify `ResearchState` in `agents.py` to add new data fields:
-```python
-class ResearchState(TypedDict):
-    messages: Annotated[list[BaseMessage], add_messages]
-    # Add your new fields here
-    new_field: str
-```
+| File | Purpose |
+|------|---------|
+| `workflow.py` | Main entry point - runs the multi-agent workflow |
+| `agents.py` | Agent definitions and AI model configurations |
+| `tools.py` | Search utilities for arXiv, Brave, and Azure AI Search |
+| `add_documents_to_index.py` | Ingestion pipeline for financial documents |
+| `run_research.py` | Interactive research interface with pre-configured queries |
+| `quick_research.py` | Command-line tool for quick research |
+| `financial_data/` | Directory containing indexed regulatory documents |
 
 ## 🤝 Contributing
 
 1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
+2. Create a feature branch (`git checkout -b feature/risk-modeling`)
+3. Commit your changes (`git commit -m 'Add new risk scenario modeling'`)
+4. Push to the branch (`git push origin feature/risk-modeling`)
 5. Open a Pull Request
 
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
-
-- Built with [LangGraph](https://github.com/langchain-ai/langgraph) for agent orchestration
-- Powered by [Azure OpenAI](https://azure.microsoft.com/en-us/products/ai-services/openai-service)
-- Inspired by [Anthropic's multi-agent research architecture](https://www.anthropic.com/engineering/built-multi-agent-research-system)
-
-## 📊 Roadmap
-
-- [ ] Add real-time web search APIs
-- [ ] Integrate academic database access (arXiv, PubMed)
-- [ ] Implement memory and context persistence
-- [ ] Add web interface
-- [ ] Support for multiple research domains
-- [ ] Quality control and fact-checking agents
-
 ---
 
-⭐ If you find this project useful, please consider giving it a star!
-
-## 🔍 Azure Vector Search Integration
-
-This system includes advanced vector search capabilities for financial stress testing documents using Azure AI Search.
-
-### Financial Document Collection
-
-The system includes a comprehensive collection of real-world financial stress test documents:
-
-- **Bank of England**: 2025/2024/2022 stress test scenarios and results
-- **Federal Reserve**: DFAST/CCAR results, exploratory analyses
-- **Basel Committee**: International regulatory frameworks
-- **BIS**: Quarterly reviews and stability reports
-- **Economic Data**: FRED time series (NFCI, credit spreads, VIX)
-
-### Vector Search Features
-
-- **Semantic Search**: Find documents by meaning, not just keywords
-- **Institution Filtering**: Search within specific regulatory bodies
-- **Document Type Filtering**: Focus on scenarios, results, or methodologies
-- **Year Range Filtering**: Find historical or current documents
-- **Similar Document Discovery**: Find related content automatically
-
-### Azure Setup
-
-1. **Create Azure AI Search Service**:
-   - Use Standard tier or higher for vector search
-   - Enable semantic search capabilities
-
-2. **Deploy Azure OpenAI Embeddings**:
-   - Deploy `text-embedding-3-large` model
-   - Note the endpoint and API key
-
-3. **Configure Environment**:
-   ```bash
-   AZURE_SEARCH_ENDPOINT=https://your-service.search.windows.net
-   AZURE_SEARCH_KEY=your-admin-key
-   AZURE_OPENAI_ENDPOINT=https://your-openai.openai.azure.com/
-   AZURE_OPENAI_API_KEY=your-api-key
-   ```
-
-4. **Index Documents**:
-   ```bash
-   python setup_azure_vector_search.py
-   # Select option 1 to run indexing
-   ```
-
-### Usage Examples
-
-```python
-from vector_search_agent import create_vector_search_agent
-
-# Create agent
-agent = create_vector_search_agent()
-
-# Search for stress test scenarios
-results = agent.vector_search("Bank of England stress test scenarios for 2025")
-
-# Search by institution
-results = agent.search_by_institution("capital adequacy assessment", "Federal Reserve")
-
-# Search by document type
-results = agent.search_by_document_type("climate risk scenarios", "Climate Risk")
-
-# Get similar documents
-similar = agent.get_similar_documents(document_id, top_k=3)
-```
-
-The Data Search Agent automatically uses vector search for financial queries, providing authoritative information from indexed regulatory documents.
+⭐ **Built for Financial Risk Professionals** - If you find this useful for stress testing research, please star the repository!
