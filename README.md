@@ -27,6 +27,9 @@ The system leverages a curated collection of real stress testing documents from 
 - **⚡ Real-time Analysis**: Parallel agent execution for comprehensive research
 - **🎯 Regulatory Intelligence**: Direct access to Fed DFAST, BOE stress tests, Basel frameworks
 - **📝 Professional Reports**: Citation-backed synthesis with quantitative findings
+- **🎭 Interactive Web Interface**: Real-time Streamlit app with cinematic agent visualization
+- **📊 Agent Workflow Visualization**: Watch agents work in real-time with progress tracking
+- **📥 Report Downloads**: Generate PDF and text reports with professional formatting
 
 ## 🏗️ Architecture & Structure
 
@@ -43,6 +46,7 @@ User Query → Lead Agent → [Academic Search | Web Search | Data Search] → C
 stresstests/
 ├── agents.py                    # Multi-agent definitions and configurations
 ├── workflow.py                  # LangGraph orchestration (main entry point)
+├── streamlit_app.py             # Interactive web interface with real-time visualization
 ├── tools.py                     # Search utilities (arXiv, Brave, Azure)
 ├── add_documents_to_index.py    # Document ingestion pipeline
 ├── requirements.txt             # Python dependencies
@@ -91,6 +95,51 @@ stresstests/
 - **Function**: Combines findings from all agents into coherent analysis
 - **Output**: Professional stress testing research reports with actionable insights
 
+## 🎭 Streamlit Web Interface
+
+The system includes a sophisticated web interface built with Streamlit that provides an engaging, cinematic experience for interacting with the multi-agent system.
+
+### Interface Features
+
+#### 🎬 Real-Time Agent Visualization
+- **Cinematic Workflow**: Watch agents appear and activate in sequential stages
+- **Agent Personalities**: Each agent has unique emojis and personality descriptions
+- **Status Animations**: Active agents show pulsing animations and "thinking" indicators
+- **Progress Tracking**: Real-time progress bar and status updates
+
+#### 🎛️ Mission Control Sidebar
+- **Live Mission Log**: Updates in real-time as agents complete tasks
+- **Sample Queries**: Pre-loaded stress testing questions for quick start
+- **Session Management**: Track current mission status and progress
+
+#### 📊 Agent Work Display
+- **Expandable Results**: Click to see what each agent discovered
+- **Work Summaries**: Preview of each agent's findings with full detail options
+- **Completion Metrics**: Word counts and processing statistics for each agent
+
+#### 📥 Professional Report Generation
+- **PDF Reports**: Professional, formatted documents with metadata and citations
+- **Text Downloads**: Plain text versions for easy integration
+- **Report Caching**: Session state management prevents re-running expensive queries
+
+#### 🎯 User Experience Features
+- **Query Suggestions**: Sample financial stress testing questions
+- **Cached Results**: Smart caching to avoid re-running identical queries
+- **Clean Interface**: Modern, responsive design with financial industry styling
+- **Easy Navigation**: Intuitive workflow from query to final report
+
+### Using the Web Interface
+
+1. **Launch the app**: `streamlit run streamlit_app.py`
+2. **Select a sample query** or enter your own financial stress testing question
+3. **Click "Launch Research Mission"** to start the multi-agent workflow
+4. **Watch agents work** in real-time with cinematic visualizations
+5. **Review individual agent work** by expanding completed agent cards
+6. **Download professional reports** in PDF or text format
+7. **Start new research** with the reset button to clear cache and begin fresh
+
+The web interface makes complex multi-agent AI research accessible and engaging, perfect for demonstrations, research sessions, or interactive analysis of financial stress testing scenarios.
+
 ## 🚀 Getting Started
 
 ### Prerequisites
@@ -98,6 +147,7 @@ stresstests/
 - Azure OpenAI API access
 - Azure AI Search service
 - Brave Search API key (optional, for web search)
+- Streamlit (included in requirements.txt for web interface)
 
 ### Installation
 
@@ -117,6 +167,8 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```bash
 pip install -r requirements.txt
 ```
+
+**Note**: The requirements include Streamlit and ReportLab for the web interface and PDF generation. If you only need the command-line version, you can install a minimal set of dependencies.
 
 ### Configuration
 
@@ -151,15 +203,48 @@ BRAVE_SEARCH_API_KEY=your-brave-api-key
 python add_documents_to_index.py
 ```
 
+### Quick Start (Web Interface)
+
+Once you've completed the setup above:
+
+```bash
+# Launch the interactive web interface
+streamlit run streamlit_app.py
+```
+
+1. **Open your browser** to the displayed URL (usually `http://localhost:8501`)
+2. **Try a sample query** by clicking one of the pre-loaded buttons in the sidebar
+3. **Click "Launch Research Mission"** to start the multi-agent workflow
+4. **Watch the agents work** in real-time with animated visualizations
+5. **Download your report** when the analysis is complete
+
+The web interface provides the most engaging way to interact with the system and is perfect for demonstrations or interactive research sessions.
+
 ## 📖 Usage
 
-### Method 1: Run Default Stress Testing Query
+### Method 1: Interactive Web Interface (Recommended)
+Launch the Streamlit web application for an engaging, visual research experience:
+```bash
+streamlit run streamlit_app.py
+```
+
+**Features:**
+- 🎬 **Cinematic Agent Visualization**: Watch agents activate and work in real-time
+- 🎛️ **Mission Control Sidebar**: Live updates and mission log tracking  
+- 📋 **Sample Queries**: Pre-loaded financial stress testing questions
+- 🔍 **Agent Work Review**: Expand completed agents to see their research
+- 📥 **Professional Downloads**: Generate PDF reports with citations
+- 🔄 **Session Management**: Cached results with easy restart functionality
+
+The web interface provides an intuitive way to interact with the multi-agent system, complete with animated agent cards, progress tracking, and professional report generation.
+
+### Method 2: Run Default Stress Testing Query (Command Line)
 ```bash
 python workflow.py
 ```
 This runs the built-in geopolitical stress testing scenario query and displays the full multi-agent workflow.
 
-### Method 2: Programmatic Usage
+### Method 3: Programmatic Usage
 ```python
 from workflow import run_research
 
@@ -174,7 +259,7 @@ final_report = result["messages"][-1].content
 print(final_report)
 ```
 
-### Method 3: Index New Documents (Optional)
+### Method 4: Index New Documents (Optional)
 If you want to add new financial documents to the search index:
 ```bash
 python add_documents_to_index.py
@@ -201,6 +286,7 @@ Each query produces:
 
 | File | Purpose |
 |------|---------|
+| `streamlit_app.py` | Interactive web interface with real-time agent visualization |
 | `workflow.py` | Main entry point - runs the multi-agent workflow |
 | `agents.py` | Agent definitions and AI model configurations |
 | `tools.py` | Search utilities for arXiv, Brave, and Azure AI Search |
