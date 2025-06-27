@@ -1,10 +1,3 @@
-#!/usr/bin/env python3
-"""
-Script to add ALL financial documents to Azure AI Search vector index.
-Memory-optimized with chunking to prevent OS kills.
-Supports PDFs, Excel files, and CSV files with full-document processing.
-"""
-
 import os
 import hashlib
 from pathlib import Path
