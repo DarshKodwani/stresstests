@@ -2,7 +2,8 @@
 Search Tools Module
 
 This module contains search tools and utilities for the multi-agent research system.
-Includes Brave Search API integration for privacy-focused web searching.
+Includes Brave Search API integration for privacy-focused web searching and
+Azure AI Search integration for financial document vector search.
 """
 
 import os
@@ -10,6 +11,10 @@ import requests
 import xml.etree.ElementTree as ET
 from typing import List, Dict, Optional
 from dotenv import load_dotenv
+
+# Azure Search imports
+from azure.search.documents import SearchClient
+from azure.core.credentials import AzureKeyCredential
 
 # Load environment variables
 load_dotenv()
@@ -20,6 +25,11 @@ BRAVE_SEARCH_URL = "https://api.search.brave.com/res/v1/web/search"
 
 # arXiv API configuration
 ARXIV_API_URL = "http://export.arxiv.org/api/query"
+
+# Azure Search configuration
+AZURE_SEARCH_ENDPOINT = os.getenv("AZURE_SEARCH_ENDPOINT")
+AZURE_SEARCH_KEY = os.getenv("AZURE_SEARCH_KEY")
+AZURE_SEARCH_INDEX = "financial-stress-test-index"
 
 def brave_web_search(query: str, count: int = 10) -> List[Dict]:
     """
@@ -231,6 +241,83 @@ def arxiv_search(query: str, max_results: int = 10) -> List[Dict]:
         print(f"Unexpected error in arXiv search: {e}")
         return []
 
+def azure_vector_search(query: str, top_k: int = 5, use_hybrid: bool = True) -> List[Dict]:
+    """
+    Perform vector search against Azure AI Search index containing financial documents.
+    
+    Args:
+        query (str): Search query
+        top_k (int): Number of top results to return
+        use_hybrid (bool): Whether to use hybrid search (vector + text)
+        
+    Returns:
+        List[Dict]: List of search results with content, metadata, and scores
+    """
+    if not AZURE_SEARCH_ENDPOINT or not AZURE_SEARCH_KEY:
+        print("⚠️ Azure Search credentials not configured")
+        return []
+    
+    try:
+        # Initialize Azure Search client
+        search_client = SearchClient(
+            endpoint=AZURE_SEARCH_ENDPOINT,
+            index_name=AZURE_SEARCH_INDEX,
+            credential=AzureKeyCredential(AZURE_SEARCH_KEY)
+        )
+        
+        # Configure search parameters
+        search_params = {
+            "search_text": query if use_hybrid else None,
+            "vector_queries": [
+                {
+                    "vector": None,  # This would need embedding generation
+                    "k_nearest_neighbors": top_k,
+                    "fields": "content_vector"
+                }
+            ] if not use_hybrid else [],
+            "select": ["id", "title", "content", "institution", "year", "document_type", "file_path"],
+            "top": top_k,
+            "search_mode": "all" if use_hybrid else "any"
+        }
+        
+        # For now, use text-only search since we'd need to generate embeddings for vector search
+        # This can be enhanced later with proper embedding generation
+        if use_hybrid:
+            results = search_client.search(
+                search_text=query,
+                select=["id", "title", "content", "institution", "year", "document_type", "file_path"],
+                top=top_k,
+                search_mode="all"
+            )
+        else:
+            # Simple text search fallback
+            results = search_client.search(
+                search_text=query,
+                select=["id", "title", "content", "institution", "year", "document_type", "file_path"],
+                top=top_k
+            )
+        
+        # Format results
+        formatted_results = []
+        for result in results:
+            formatted_result = {
+                "id": result.get("id", ""),
+                "title": result.get("title", "Unknown Document"),
+                "content": result.get("content", "")[:1000],  # Truncate for readability
+                "institution": result.get("institution", "Unknown"),
+                "year": result.get("year", "Unknown"),
+                "document_type": result.get("document_type", "Unknown"),
+                "file_path": result.get("file_path", ""),
+                "search_score": getattr(result, '@search.score', 0.0)
+            }
+            formatted_results.append(formatted_result)
+        
+        return formatted_results
+        
+    except Exception as e:
+        print(f"❌ Azure vector search error: {e}")
+        return []
+
 def format_search_results(results: List[Dict], result_type: str = "web") -> str:
     """
     Format search results into a readable string for LLM consumption.
@@ -283,6 +370,34 @@ def format_arxiv_results(results: List[Dict]) -> str:
         formatted += f"   Categories: {', '.join(paper.get('categories', []))}\n"
         formatted += f"   URL: {paper.get('url', 'No URL')}\n"
         formatted += f"   Abstract: {paper.get('abstract', 'No abstract')[:500]}{'...' if len(paper.get('abstract', '')) > 500 else ''}\n"
+        formatted += "\n"
+    
+    return formatted
+
+def format_azure_search_results(results: List[Dict]) -> str:
+    """
+    Format Azure AI Search results into a readable string for LLM consumption.
+    
+    Args:
+        results (List[Dict]): Azure Search results
+        
+    Returns:
+        str: Formatted search results
+    """
+    if not results:
+        return "No relevant documents found in the financial stress test index."
+    
+    formatted = "\n=== FINANCIAL DOCUMENT SEARCH RESULTS ===\n\n"
+    formatted += f"Found {len(results)} relevant documents from the indexed financial stress test collection:\n\n"
+    
+    for i, result in enumerate(results, 1):
+        formatted += f"{i}. **{result.get('title', 'Unknown Document')}**\n"
+        formatted += f"   Institution: {result.get('institution', 'Unknown')}\n"
+        formatted += f"   Year: {result.get('year', 'Unknown')}\n"
+        formatted += f"   Document Type: {result.get('document_type', 'Unknown')}\n"
+        formatted += f"   Relevance Score: {result.get('search_score', 0.0):.3f}\n"
+        formatted += f"   Content Preview: {result.get('content', 'No content')[:500]}{'...' if len(result.get('content', '')) > 500 else ''}\n"
+        formatted += f"   Source: {result.get('file_path', 'Unknown file')}\n"
         formatted += "\n"
     
     return formatted

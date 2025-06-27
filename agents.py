@@ -13,7 +13,11 @@ from langchain_core.messages import BaseMessage, HumanMessage, SystemMessage
 from langgraph.graph.message import add_messages
 
 # Import search tools
-from tools import brave_web_search, format_search_results, arxiv_search, format_arxiv_results
+from tools import (
+    brave_web_search, format_search_results, 
+    arxiv_search, format_arxiv_results,
+    azure_vector_search, format_azure_search_results
+)
 
 # Load environment variables
 load_dotenv()
@@ -157,86 +161,55 @@ def web_search_agent(state: ResearchState):
 
 def data_search_agent(state: ResearchState):
     """
-    Data Search Agent - Enhanced with Azure Vector Search
-    - Specializes in statistics, datasets, and quantitative information from indexed documents
-    - Integrates with Azure AI Search for financial stress test document retrieval
-    - Focuses on numerical data and factual information from authoritative sources
+    Data Search Agent - Azure AI Search Integration
+    - Specializes in financial stress test documents using Azure vector search
+    - Searches through indexed PDFs, Excel, and CSV files from regulatory institutions
+    - Provides quantitative data and regulatory findings from authoritative sources
     """
-    print("🔍 Data Search Agent: Searching financial documents and quantitative data...")
+    print("� Data Search Agent: Searching indexed financial documents...")
     
-    # Try to use Azure vector search first for financial/regulatory queries
-    user_query = state.get("user_query", "")
-    vector_results = ""
+    # Extract the user query from messages
+    user_query = ""
+    if state["messages"]:
+        # Get the original user query (first message)
+        user_query = state["messages"][0].content
     
-    try:
-        from vector_search_agent import create_vector_search_agent
-        
-        # Check if this looks like a financial/regulatory query
-        financial_keywords = [
-            'stress test', 'banking', 'capital', 'regulatory', 'fed', 'federal reserve',
-            'bank of england', 'boe', 'basel', 'dfast', 'ccar', 'financial stability',
-            'risk', 'scenario', 'crisis', 'macroeconomic', 'credit', 'market risk'
-        ]
-        
-        is_financial_query = any(keyword in user_query.lower() for keyword in financial_keywords)
-        
-        if is_financial_query:
-            vector_agent = create_vector_search_agent()
-            if vector_agent:
-                print("   🏦 Searching indexed financial stress test documents...")
-                
-                # Perform vector search
-                search_results = vector_agent.vector_search(user_query, top_k=5)
-                
-                if search_results:
-                    vector_results = "## 📊 Financial Document Search Results\n\n"
-                    vector_results += f"Found {len(search_results)} relevant documents from our indexed financial stress test collection:\n\n"
-                    
-                    for i, result in enumerate(search_results, 1):
-                        vector_results += f"### {i}. {result['title']}\n"
-                        vector_results += f"**Source**: {result['institution']} ({result['year']})\n"
-                        vector_results += f"**Document Type**: {result['document_type']}\n"
-                        vector_results += f"**Relevance Score**: {result['search_score']:.3f}\n"
-                        vector_results += f"**Content**: {result['content'][:500]}...\n\n"
-                    
-                    print(f"   ✅ Found {len(search_results)} relevant financial documents")
-                else:
-                    vector_results = "## 📊 Financial Document Search\n\nNo relevant documents found in the indexed financial stress test collection.\n\n"
-                    print("   ⚠️ No relevant financial documents found in index")
-            else:
-                print("   ⚠️ Vector search not available - check Azure configuration")
-        else:
-            print("   ℹ️ Query not identified as financial - skipping vector search")
-            
-    except Exception as e:
-        print(f"   ❌ Vector search error: {e}")
-        vector_results = ""
+    # Perform Azure vector search on financial documents
+    print(f"🏦 Searching Azure AI Search index for: {user_query}")
+    search_results = azure_vector_search(user_query, top_k=5, use_hybrid=True)
+    formatted_results = format_azure_search_results(search_results)
     
-    # Construct system prompt with vector search results
-    system_prompt = f"""You are the Data Search Agent, specialized in finding statistical and quantitative information.
+    if search_results:
+        print(f"✅ Found {len(search_results)} relevant financial documents")
+    else:
+        print("⚠️ No relevant documents found in the financial stress test index")
+    
+    system_prompt = f"""You are the Data Search Agent, specialized in finding quantitative information from financial stress test documents.
     
     Your role:
-    1. Find relevant statistics, datasets, and numerical data
-    2. Search for market research, surveys, and quantitative studies  
-    3. Provide factual, data-driven insights from authoritative sources
-    4. Focus on measurable and verifiable information
-    5. Prioritize information from indexed financial regulatory documents when available
+    1. Analyze real financial documents from our indexed collection
+    2. Extract specific statistics, stress test results, and regulatory findings
+    3. Focus on quantitative data from Federal Reserve, Bank of England, ECB, and other central bank sources
+    4. Provide detailed numerical data and factual information from authoritative regulatory documents
     
-    {vector_results}
+    INDEXED FINANCIAL DOCUMENT SEARCH RESULTS:
+    {formatted_results}
     
-    IMPORTANT: When given a research query, provide SPECIFIC quantitative findings with:
-    - Exact numbers, percentages, and statistics from regulatory sources
-    - Market size data and growth rates
-    - Stress test results and capital ratios
-    - Financial figures and loss projections
-    - Technical specifications and performance metrics
-    - Comparative data from multiple institutions
-    - Historical trends and scenario analyses
+    IMPORTANT: Base your response ONLY on the financial documents provided above from our Azure AI Search index.
     
-    Always cite your sources, especially when using information from indexed financial documents.
-    Prioritize data from Federal Reserve, Bank of England, ECB, and other central bank sources.
+    Provide specific quantitative findings with:
+    - Exact capital ratios, stress test results, and regulatory metrics
+    - Specific bank names, institution data, and comparative analyses
+    - Numerical projections, loss estimates, and scenario outcomes
+    - Regulatory requirements, thresholds, and compliance data
+    - Historical trends and year-over-year comparisons
+    - Technical specifications from stress testing methodologies
+    - Market risk measures, credit losses, and operational risk data
     
-    Format your response as detailed quantitative research findings with specific numbers and data points."""
+    Always cite the specific institution and document year when referencing data.
+    Focus on measurable, verifiable information from the indexed regulatory sources.
+    
+    Format your response as detailed quantitative research findings with specific numbers and institutional sources."""
     
     messages = [SystemMessage(content=system_prompt)] + state["messages"]
     response = llm.invoke(messages)
