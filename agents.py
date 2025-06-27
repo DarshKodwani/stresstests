@@ -13,7 +13,7 @@ from langchain_core.messages import BaseMessage, HumanMessage, SystemMessage
 from langgraph.graph.message import add_messages
 
 # Import search tools
-from tools import brave_web_search, format_search_results
+from tools import brave_web_search, format_search_results, arxiv_search, format_arxiv_results
 
 # Load environment variables
 load_dotenv()
@@ -74,22 +74,39 @@ def academic_search_agent(state: ResearchState):
     - Specializes in scholarly articles, papers, and academic sources
     - Focuses on peer-reviewed and authoritative content
     """
-    system_prompt = """You are the Academic Search Agent, specialized in finding scholarly and academic information.
+    
+    # Extract the user query from messages
+    user_query = ""
+    if state["messages"]:
+        # Get the original user query (first message)
+        user_query = state["messages"][0].content
+    
+    # Perform real academic search using arXiv API
+    print(f"🎓 Academic Search Agent searching arXiv for: {user_query}")
+    arxiv_results = arxiv_search(user_query, max_results=6)
+    formatted_arxiv = format_arxiv_results(arxiv_results)
+    
+    system_prompt = f"""You are the Academic Search Agent, specialized in finding scholarly and academic information.
     
     Your role:
-    1. Search for peer-reviewed papers, academic articles, and scholarly sources
-    2. Focus on authoritative, research-backed information
-    3. Provide detailed academic context and theoretical frameworks
-    4. Cite specific studies, researchers, and academic institutions
+    1. Analyze real academic papers from arXiv
+    2. Extract key theoretical frameworks, methodologies, and research findings
+    3. Focus on peer-reviewed, research-backed information
+    4. Identify leading researchers and academic institutions in the field
     
-    IMPORTANT: When given a research query, provide SPECIFIC academic findings with:
-    - Names of researchers and institutions
-    - Specific study results and data
-    - Academic theories and frameworks
-    - Publication dates and journal names
-    - Technical details and methodologies
+    ARXIV SEARCH RESULTS TO ANALYZE:
+    {formatted_arxiv}
     
-    Format your response as detailed research findings, not just general statements."""
+    IMPORTANT: Base your response ONLY on the academic papers provided above from arXiv.
+    Provide specific academic findings with:
+    - Names of researchers and their affiliations
+    - Specific methodologies and theoretical frameworks
+    - Key research findings and conclusions
+    - Technical details and experimental results
+    - Research gaps and future directions mentioned
+    - Mathematical formulations or algorithms (if relevant)
+    
+    Format your response as detailed academic research findings based on the papers found."""
     
     messages = [SystemMessage(content=system_prompt)] + state["messages"]
     response = llm.invoke(messages)
@@ -140,25 +157,84 @@ def web_search_agent(state: ResearchState):
 
 def data_search_agent(state: ResearchState):
     """
-    Data Search Agent
-    - Specializes in statistics, datasets, and quantitative information
-    - Focuses on numerical data and factual information
+    Data Search Agent - Enhanced with Azure Vector Search
+    - Specializes in statistics, datasets, and quantitative information from indexed documents
+    - Integrates with Azure AI Search for financial stress test document retrieval
+    - Focuses on numerical data and factual information from authoritative sources
     """
-    system_prompt = """You are the Data Search Agent, specialized in finding statistical and quantitative information.
+    print("🔍 Data Search Agent: Searching financial documents and quantitative data...")
+    
+    # Try to use Azure vector search first for financial/regulatory queries
+    user_query = state.get("user_query", "")
+    vector_results = ""
+    
+    try:
+        from vector_search_agent import create_vector_search_agent
+        
+        # Check if this looks like a financial/regulatory query
+        financial_keywords = [
+            'stress test', 'banking', 'capital', 'regulatory', 'fed', 'federal reserve',
+            'bank of england', 'boe', 'basel', 'dfast', 'ccar', 'financial stability',
+            'risk', 'scenario', 'crisis', 'macroeconomic', 'credit', 'market risk'
+        ]
+        
+        is_financial_query = any(keyword in user_query.lower() for keyword in financial_keywords)
+        
+        if is_financial_query:
+            vector_agent = create_vector_search_agent()
+            if vector_agent:
+                print("   🏦 Searching indexed financial stress test documents...")
+                
+                # Perform vector search
+                search_results = vector_agent.vector_search(user_query, top_k=5)
+                
+                if search_results:
+                    vector_results = "## 📊 Financial Document Search Results\n\n"
+                    vector_results += f"Found {len(search_results)} relevant documents from our indexed financial stress test collection:\n\n"
+                    
+                    for i, result in enumerate(search_results, 1):
+                        vector_results += f"### {i}. {result['title']}\n"
+                        vector_results += f"**Source**: {result['institution']} ({result['year']})\n"
+                        vector_results += f"**Document Type**: {result['document_type']}\n"
+                        vector_results += f"**Relevance Score**: {result['search_score']:.3f}\n"
+                        vector_results += f"**Content**: {result['content'][:500]}...\n\n"
+                    
+                    print(f"   ✅ Found {len(search_results)} relevant financial documents")
+                else:
+                    vector_results = "## 📊 Financial Document Search\n\nNo relevant documents found in the indexed financial stress test collection.\n\n"
+                    print("   ⚠️ No relevant financial documents found in index")
+            else:
+                print("   ⚠️ Vector search not available - check Azure configuration")
+        else:
+            print("   ℹ️ Query not identified as financial - skipping vector search")
+            
+    except Exception as e:
+        print(f"   ❌ Vector search error: {e}")
+        vector_results = ""
+    
+    # Construct system prompt with vector search results
+    system_prompt = f"""You are the Data Search Agent, specialized in finding statistical and quantitative information.
     
     Your role:
     1. Find relevant statistics, datasets, and numerical data
-    2. Search for market research, surveys, and quantitative studies
-    3. Provide factual, data-driven insights
+    2. Search for market research, surveys, and quantitative studies  
+    3. Provide factual, data-driven insights from authoritative sources
     4. Focus on measurable and verifiable information
+    5. Prioritize information from indexed financial regulatory documents when available
+    
+    {vector_results}
     
     IMPORTANT: When given a research query, provide SPECIFIC quantitative findings with:
-    - Exact numbers, percentages, and statistics
+    - Exact numbers, percentages, and statistics from regulatory sources
     - Market size data and growth rates
-    - Survey results and poll data
-    - Financial figures and investment amounts
+    - Stress test results and capital ratios
+    - Financial figures and loss projections
     - Technical specifications and performance metrics
-    - Comparative data and benchmarks
+    - Comparative data from multiple institutions
+    - Historical trends and scenario analyses
+    
+    Always cite your sources, especially when using information from indexed financial documents.
+    Prioritize data from Federal Reserve, Bank of England, ECB, and other central bank sources.
     
     Format your response as detailed quantitative research findings with specific numbers and data points."""
     
