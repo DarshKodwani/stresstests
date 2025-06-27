@@ -1,9 +1,3 @@
-#!/usr/bin/env python3
-"""
-Streamlit App for Financial Stress Test Research System
-A fun and interactive way to visualize the multi-agent workflow in real-time!
-"""
-
 import streamlit as st
 import time
 from datetime import datetime
