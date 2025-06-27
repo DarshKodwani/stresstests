@@ -1,17 +1,3 @@
-"""
-Multi-Agent Research Workflow
-
-This module creates and manages the LangGraph workflow that coordinates
-all research agents to work together on complex re    # Stress testing query focused on geopolitical scenarios
-    test_query = "Tell me the top three scenarios I should model for macroeconomic events if there is geopolitical unrest in the Middle East"
-    
-    print(f"\n📋 RESEARCH QUERY:")
-    print(f"   {test_query}")
-    print("\n🔄 AGENT WORKFLOW:")
-    print("   Lead Agent → Search Agents (Parallel) → Citations → Synthesis")
-    print("   Data Search Agent will query indexed financial stress test documents")tasks.
-"""
-
 from langgraph.graph import StateGraph, START, END
 from langgraph.graph.message import add_messages
 from langchain_core.messages import HumanMessage, SystemMessage
