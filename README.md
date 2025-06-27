@@ -45,8 +45,6 @@ stresstests/
 ├── workflow.py                  # LangGraph orchestration (main entry point)
 ├── tools.py                     # Search utilities (arXiv, Brave, Azure)
 ├── add_documents_to_index.py    # Document ingestion pipeline
-├── run_research.py              # Interactive research interface
-├── quick_research.py            # Command-line research tool
 ├── requirements.txt             # Python dependencies
 ├── financial_data/              # Indexed regulatory documents
 │   ├── fed-2023-dfast-*.pdf    # Federal Reserve stress test results
@@ -54,6 +52,7 @@ stresstests/
 │   ├── basel-*.pdf             # Basel Committee frameworks
 │   └── *.xlsx, *.csv          # Economic data and spreadsheets
 ├── .env.example                # Environment template
+├── firstTimeSetup.sh           # Initial setup script
 └── README.md                   # This documentation
 ```
 
@@ -158,20 +157,9 @@ python add_documents_to_index.py
 ```bash
 python workflow.py
 ```
-This runs the built-in geopolitical stress testing scenario query.
+This runs the built-in geopolitical stress testing scenario query and displays the full multi-agent workflow.
 
-### Method 2: Interactive Research Session
-```bash
-python run_research.py
-```
-Choose from pre-configured financial queries or enter your own.
-
-### Method 3: Quick Command-Line Research
-```bash
-python quick_research.py "What are the Fed 2023 DFAST stress test results?"
-```
-
-### Method 4: Programmatic Usage
+### Method 2: Programmatic Usage
 ```python
 from workflow import run_research
 
@@ -184,6 +172,12 @@ result = run_research(
 # Access final synthesis
 final_report = result["messages"][-1].content
 print(final_report)
+```
+
+### Method 3: Index New Documents (Optional)
+If you want to add new financial documents to the search index:
+```bash
+python add_documents_to_index.py
 ```
 
 ## 💡 Examples
@@ -211,9 +205,10 @@ Each query produces:
 | `agents.py` | Agent definitions and AI model configurations |
 | `tools.py` | Search utilities for arXiv, Brave, and Azure AI Search |
 | `add_documents_to_index.py` | Ingestion pipeline for financial documents |
-| `run_research.py` | Interactive research interface with pre-configured queries |
-| `quick_research.py` | Command-line tool for quick research |
 | `financial_data/` | Directory containing indexed regulatory documents |
+| `firstTimeSetup.sh` | Initial environment setup script |
+| `requirements.txt` | Python package dependencies |
+| `.env.example` | Template for environment variables |
 
 ## 🤝 Contributing
 
