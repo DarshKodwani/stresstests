@@ -8,13 +8,11 @@ from dotenv import load_dotenv
 import tiktoken
 import pandas as pd
 
-# Azure imports
 from azure.search.documents import SearchClient
 from azure.core.credentials import AzureKeyCredential
 from openai import AzureOpenAI
 import PyPDF2
 
-# Load environment variables
 load_dotenv()
 
 def extract_pdf_full_document(pdf_path: Path) -> str:
@@ -280,7 +278,6 @@ def main():
     print("🚀 Adding ALL Financial Documents to Azure AI Search Vector Index")
     print("=" * 70)
     
-    # Configuration
     FINANCIAL_DATA_DIR = Path("financial_data")
     INDEX_NAME = "financial-stress-test-index"
     

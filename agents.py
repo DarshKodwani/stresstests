@@ -5,23 +5,19 @@ from langchain_openai import AzureChatOpenAI
 from langchain_core.messages import BaseMessage, HumanMessage, SystemMessage
 from langgraph.graph.message import add_messages
 
-# Import search tools
 from tools import (
     brave_web_search, format_search_results, 
     arxiv_search, format_arxiv_results,
     azure_vector_search, format_azure_search_results
 )
 
-# Load environment variables
 load_dotenv()
 
-# Azure OpenAI Configuration
 endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
 deployment_name = os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME")
 api_key = os.getenv("AZURE_OPENAI_API_KEY")
 api_version = os.getenv("AZURE_OPENAI_API_VERSION")
 
-# Setup Azure OpenAI client
 llm = AzureChatOpenAI(
     openai_api_version=api_version,
     azure_deployment=deployment_name,
@@ -30,7 +26,6 @@ llm = AzureChatOpenAI(
     temperature=0.7
 )
 
-# State definition (will move to separate file later)
 class ResearchState(TypedDict):
     messages: Annotated[list[BaseMessage], add_messages]
     user_query: str
@@ -38,10 +33,6 @@ class ResearchState(TypedDict):
     search_results: list[dict]
     citations: list[dict]
     final_report: str
-
-# =============================================================================
-# AGENT DEFINITIONS
-# =============================================================================
 
 def lead_agent(state: ResearchState):
     """
@@ -72,13 +63,10 @@ def academic_search_agent(state: ResearchState):
     - Focuses on peer-reviewed and authoritative content
     """
     
-    # Extract the user query from messages
     user_query = ""
     if state["messages"]:
-        # Get the original user query (first message)
         user_query = state["messages"][0].content
     
-    # Perform real academic search using arXiv API
     print(f"🎓 Academic Search Agent searching arXiv for: {user_query}")
     arxiv_results = arxiv_search(user_query, max_results=6)
     formatted_arxiv = format_arxiv_results(arxiv_results)
@@ -116,13 +104,10 @@ def web_search_agent(state: ResearchState):
     - Focuses on recent developments and real-world applications
     """
     
-    # Extract the user query from messages
     user_query = ""
     if state["messages"]:
-        # Get the original user query (first message)
         user_query = state["messages"][0].content
     
-    # Perform real web search using Brave Search API
     print(f"🔍 Web Search Agent searching for: {user_query}")
     search_results = brave_web_search(user_query, count=8)
     formatted_results = format_search_results(search_results, "web")
@@ -159,15 +144,12 @@ def data_search_agent(state: ResearchState):
     - Searches through indexed PDFs, Excel, and CSV files from regulatory institutions
     - Provides quantitative data and regulatory findings from authoritative sources
     """
-    print("� Data Search Agent: Searching indexed financial documents...")
+    print("📊 Data Search Agent: Searching indexed financial documents...")
     
-    # Extract the user query from messages
     user_query = ""
     if state["messages"]:
-        # Get the original user query (first message)
         user_query = state["messages"][0].content
     
-    # Perform Azure vector search on financial documents
     print(f"🏦 Searching Azure AI Search index for: {user_query}")
     search_results = azure_vector_search(user_query, top_k=5, use_hybrid=True)
     formatted_results = format_azure_search_results(search_results)

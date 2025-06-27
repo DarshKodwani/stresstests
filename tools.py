@@ -4,21 +4,16 @@ import xml.etree.ElementTree as ET
 from typing import List, Dict, Optional
 from dotenv import load_dotenv
 
-# Azure Search imports
 from azure.search.documents import SearchClient
 from azure.core.credentials import AzureKeyCredential
 
-# Load environment variables
 load_dotenv()
 
-# Brave Search API configuration
 BRAVE_API_KEY = os.getenv("BRAVE_SEARCH_API_KEY")
 BRAVE_SEARCH_URL = "https://api.search.brave.com/res/v1/web/search"
 
-# arXiv API configuration
 ARXIV_API_URL = "http://export.arxiv.org/api/query"
 
-# Azure Search configuration
 AZURE_SEARCH_ENDPOINT = os.getenv("AZURE_SEARCH_ENDPOINT")
 AZURE_SEARCH_KEY = os.getenv("AZURE_SEARCH_KEY")
 AZURE_SEARCH_INDEX = "financial-stress-test-index"
@@ -132,7 +127,7 @@ def brave_news_search(query: str, count: int = 10) -> List[Dict]:
                 }
                 results.append(formatted_result)
         
-        return results[:count]  # Return requested number of results
+        return results[:count]
         
     except requests.exceptions.RequestException as e:
         print(f"Error performing Brave news search: {e}")
@@ -250,7 +245,6 @@ def azure_vector_search(query: str, top_k: int = 5, use_hybrid: bool = True) -> 
         return []
     
     try:
-        # Initialize Azure Search client
         search_client = SearchClient(
             endpoint=AZURE_SEARCH_ENDPOINT,
             index_name=AZURE_SEARCH_INDEX,
@@ -289,7 +283,6 @@ def azure_vector_search(query: str, top_k: int = 5, use_hybrid: bool = True) -> 
                 top=top_k
             )
         
-        # Format results
         formatted_results = []
         for result in results:
             formatted_result = {

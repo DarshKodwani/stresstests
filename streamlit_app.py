@@ -242,7 +242,6 @@ def run_workflow_with_visualization(query):
         st.markdown(f"**🎯 Mission Brief:** *{query}*")
         st.markdown("---")
     
-    # Initialize agent tracking
     agent_names = [
         "lead_agent", "academic_search", "web_search", 
         "data_search", "aggregator", "citations_agent", "synthesis"
